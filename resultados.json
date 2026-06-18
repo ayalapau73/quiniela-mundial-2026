@@ -1,5 +1,392 @@
 {
-  "partidos_jugados": 0,
-  "ultima_actualizacion": "Aún sin actualizar",
-  "equipos": {}
+  "partidos_jugados": 25,
+  "ultima_actualizacion": "18 jun 2026, 14:32",
+  "equipos": {
+    "Bélgica": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Egipto", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Sudáfrica": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "México", "resultado": "0-2", "tipo": "derrota", "fase": "grupos" },
+        { "rival": "Chequia", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Catar": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Suiza", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Turquía": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Australia", "resultado": "0-2", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Haití": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Escocia", "resultado": "0-1", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Países Bajos": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Japón", "resultado": "2-2", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Marruecos": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Brasil", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Australia": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Turquía", "resultado": "2-0", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Colombia": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Uzbekistán", "resultado": "3-1", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Túnez": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Suecia", "resultado": "1-5", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Argentina": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Argelia", "resultado": "3-0", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Japón": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Países Bajos", "resultado": "2-2", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Rep. de Corea": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Chequia", "resultado": "2-1", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Noruega": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Irak", "resultado": "4-1", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Irak": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Noruega", "resultado": "1-4", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Alemania": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Curazao", "resultado": "7-1", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Argelia": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Argentina", "resultado": "0-3", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Arabia Saudí": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Uruguay", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Jordania": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Austria", "resultado": "1-3", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Islas Cabo Verde": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "España", "resultado": "0-0", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Inglaterra": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Croacia", "resultado": "4-2", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "EE.UU.": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Paraguay", "resultado": "4-1", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Suecia": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Túnez", "resultado": "5-1", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Panamá": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Ghana", "resultado": "0-1", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Francia": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Senegal", "resultado": "3-1", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Senegal": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Francia", "resultado": "1-3", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Costa de Marfil": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Ecuador", "resultado": "1-0", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Escocia": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Haití", "resultado": "1-0", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Brasil": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Marruecos", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "RD Congo": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Portugal", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Uzbekistán": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Colombia", "resultado": "1-3", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Chequia": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Rep. de Corea", "resultado": "1-2", "tipo": "derrota", "fase": "grupos" },
+        { "rival": "Sudáfrica", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "España": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Islas Cabo Verde", "resultado": "0-0", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Paraguay": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "EE.UU.", "resultado": "1-4", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Ghana": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Panamá", "resultado": "1-0", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Uruguay": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Arabia Saudí", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Portugal": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "RD Congo", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Bosnia y Herz.": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Canadá", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "RI de Irán": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Nueva Zelanda", "resultado": "2-2", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Nueva Zelanda": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "RI de Irán", "resultado": "2-2", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "México": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Sudáfrica", "resultado": "2-0", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Egipto": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Bélgica", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Austria": {
+      "pts": 6,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Jordania", "resultado": "3-1", "tipo": "victoria", "fase": "grupos" }
+      ]
+    },
+    "Ecuador": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Costa de Marfil", "resultado": "0-1", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Croacia": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Inglaterra", "resultado": "2-4", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Canadá": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Bosnia y Herz.", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    },
+    "Curazao": {
+      "pts": 0,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Alemania", "resultado": "1-7", "tipo": "derrota", "fase": "grupos" }
+      ]
+    },
+    "Suiza": {
+      "pts": 2,
+      "estado": "activo",
+      "fase": "grupos",
+      "partidos": [
+        { "rival": "Catar", "resultado": "1-1", "tipo": "empate", "fase": "grupos" }
+      ]
+    }
+  }
 }
