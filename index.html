@@ -247,17 +247,17 @@ h1 span { color:var(--gold); }
 <script>
 // ── DATOS DE LA QUINIELA ──────────────────────
 const Q = [
-  {n:"Bela",    e:[{t:"Bélgica",p:1,g:"G"},{t:"Sudáfrica",p:0,g:"A"},{t:"Catar",p:0,g:"B"},{t:"Turquía",p:0,g:"D"},{t:"Haití",p:0,g:"C",r:1}]},
-  {n:"Belo",    e:[{t:"Países Bajos",p:1,g:"F"},{t:"Marruecos",p:0,g:"C"},{t:"Australia",p:0,g:"D"},{t:"Colombia",p:0,g:"K"},{t:"Túnez",p:0,g:"F",r:1}]},
-  {n:"Sergio",  e:[{t:"Argentina",p:1,g:"J"},{t:"Japón",p:0,g:"F"},{t:"Rep. de Corea",p:0,g:"A"},{t:"Noruega",p:0,g:"I"},{t:"Irak",p:0,g:"I",r:1}]},
-  {n:"Adriana", e:[{t:"Alemania",p:1,g:"E"},{t:"Argelia",p:0,g:"J"},{t:"Arabia Saudí",p:0,g:"H"},{t:"Jordania",p:0,g:"J"},{t:"Islas Cabo Verde",p:0,g:"H",r:1}]},
-  {n:"Gaby",    e:[{t:"Inglaterra",p:1,g:"L"},{t:"EE.UU.",p:0,g:"D"},{t:"Suecia",p:0,g:"F"},{t:"Panamá",p:0,g:"L"},{t:"Túnez",p:0,g:"F",r:1}]},
-  {n:"Paula",   e:[{t:"Francia",p:1,g:"I"},{t:"Senegal",p:0,g:"I"},{t:"Costa de Marfil",p:0,g:"E"},{t:"Escocia",p:0,g:"C"},{t:"Haití",p:0,g:"C",r:1}]},
-  {n:"Diego",   e:[{t:"Brasil",p:1,g:"C"},{t:"RD Congo",p:0,g:"K"},{t:"Uzbekistán",p:0,g:"K"},{t:"Chequia",p:0,g:"A"},{t:"Irak",p:0,g:"I",r:1}]},
-  {n:"Xime",    e:[{t:"España",p:1,g:"H"},{t:"Paraguay",p:0,g:"D"},{t:"Ghana",p:0,g:"L"},{t:"Uruguay",p:0,g:"H"},{t:"Islas Cabo Verde",p:0,g:"H",r:1}]},
-  {n:"Regina",  e:[{t:"Portugal",p:1,g:"K"},{t:"Bosnia y Herz.",p:0,g:"B"},{t:"RI de Irán",p:0,g:"G"},{t:"Nueva Zelanda",p:0,g:"G"},{t:"Haití",p:0,g:"C",r:1}]},
-  {n:"Gustavo", e:[{t:"México",p:1,g:"A"},{t:"Egipto",p:0,g:"G"},{t:"Austria",p:0,g:"J"},{t:"Ecuador",p:0,g:"E"},{t:"Irak",p:0,g:"I",r:1}]},
-  {n:"David",   e:[{t:"Croacia",p:1,g:"L"},{t:"Canadá",p:0,g:"B"},{t:"Curazao",p:0,g:"E"},{t:"Suiza",p:0,g:"B"},{t:"Islas Cabo Verde",p:0,g:"H",r:1}]}
+  {n:"Bela",    e:[{t:"Bélgica",p:1,g:"G"},{t:"RD Congo",p:0,g:"K"},{t:"Costa de Marfil",p:0,g:"E"},{t:"Turquía",p:0,g:"D"},{t:"Islas Cabo Verde",p:0,g:"H",r:1}]},
+  {n:"Belo",    e:[{t:"Países Bajos",p:1,g:"F"},{t:"Marruecos",p:0,g:"C"},{t:"Uzbekistán",p:0,g:"K"},{t:"Chequia",p:0,g:"A"},{t:"Haití",p:0,g:"C",r:1}]},
+  {n:"Sergio",  e:[{t:"Argentina",p:1,g:"J"},{t:"Argelia",p:0,g:"J"},{t:"Catar",p:0,g:"B"},{t:"Noruega",p:0,g:"I"},{t:"Túnez",p:0,g:"F",r:1}]},
+  {n:"Adriana", e:[{t:"Alemania",p:1,g:"E"},{t:"Egipto",p:0,g:"G"},{t:"Australia",p:0,g:"D"},{t:"Jordania",p:0,g:"J"},{t:"Haití",p:0,g:"C",r:1}]},
+  {n:"Gaby",    e:[{t:"Inglaterra",p:1,g:"L"},{t:"Senegal",p:0,g:"I"},{t:"Austria",p:0,g:"J"},{t:"Ecuador",p:0,g:"E"},{t:"Túnez",p:0,g:"F",r:1}]},
+  {n:"Paula",   e:[{t:"Francia",p:1,g:"I"},{t:"Japón",p:0,g:"F"},{t:"Arabia Saudí",p:0,g:"H"},{t:"Escocia",p:0,g:"C"},{t:"Irak",p:0,g:"I",r:1}]},
+  {n:"Diego",   e:[{t:"Brasil",p:1,g:"C"},{t:"Canadá",p:0,g:"B"},{t:"RI de Irán",p:0,g:"G"},{t:"Panamá",p:0,g:"L"},{t:"Haití",p:0,g:"C",r:1}]},
+  {n:"Xime",    e:[{t:"España",p:1,g:"H"},{t:"Sudáfrica",p:0,g:"A"},{t:"Suecia",p:0,g:"F"},{t:"Colombia",p:0,g:"K"},{t:"Irak",p:0,g:"I",r:1}]},
+  {n:"Regina",  e:[{t:"Portugal",p:1,g:"K"},{t:"Paraguay",p:0,g:"D"},{t:"Rep. de Corea",p:0,g:"A"},{t:"Nueva Zelanda",p:0,g:"G"},{t:"Túnez",p:0,g:"F",r:1}]},
+  {n:"Gustavo", e:[{t:"México",p:1,g:"A"},{t:"EE.UU.",p:0,g:"D"},{t:"Ghana",p:0,g:"L"},{t:"Suiza",p:0,g:"B"},{t:"Irak",p:0,g:"I",r:1}]},
+  {n:"David",   e:[{t:"Croacia",p:1,g:"L"},{t:"Curazao",p:0,g:"E"},{t:"Bosnia y Herz.",p:0,g:"B"},{t:"Uruguay",p:0,g:"H"},{t:"Islas Cabo Verde",p:0,g:"H",r:1}]}
 ];
 
 const FL = {
