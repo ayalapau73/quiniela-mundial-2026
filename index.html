@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Quiniela Mundial 2026 🏆</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --night:   #0A0F1E;
+  --surface: #0D1B36;
+  --surf2:   #112244;
+  --border:  #1A3B6E;
+  --gold:    #F5C542;
+  --goldd:   #8A6D1A;
+  --text:    #E8EDF5;
+  --muted:   #7A8BA8;
+  --green:   #22C55E;
+  --red:     #EF4444;
+}
+body {
+  background: var(--night); color: var(--text);
+  font-family: 'Inter', sans-serif; min-height: 100vh; padding-bottom: 4rem;
+}
+
+/* HEADER */
+.hdr {
+  background: linear-gradient(180deg,#000510 0%,var(--night) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 1.4rem 1.5rem 1.1rem; position: relative; overflow: hidden;
+}
+.hdr::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse 80% 60% at 50% -20%,rgba(245,197,66,.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hdr-inner {
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:flex-start;
+  justify-content:space-between; gap:1rem; flex-wrap:wrap;
+}
+.eyebrow {
+  font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); font-weight:600; margin-bottom:.2rem;
+}
+h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,5vw,3.4rem);
+  line-height:1; letter-spacing:.03em;
+}
+h1 span { color:var(--gold); }
+.pills { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.55rem; }
+.pill {
+  font-size:.63rem; padding:2px 7px; border-radius:20px;
+  background:var(--surf2); border:1px solid var(--border); color:var(--muted);
+}
+.pill strong { color:var(--gold); }
+
+/* SCOREBOARD LED */
+.sboard { display:flex; gap:.9rem; align-items:center; flex-wrap:wrap; }
+.scell {
+  display:flex; flex-direction:column; align-items:center;
+  background:#000; border:1px solid var(--goldd); border-radius:6px;
+  padding:.4rem .9rem; min-width:62px;
+  box-shadow:0 0 10px rgba(245,197,66,.12);
+}
+.snum {
+  font-family:'Bebas Neue',sans-serif; font-size:1.75rem;
+  color:var(--gold); line-height:1;
+  text-shadow:0 0 10px rgba(245,197,66,.5);
+  font-variant-numeric:tabular-nums;
+}
+.slbl { font-size:.56rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:1px; }
+
+/* LOADING */
+.lbar {
+  height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--green),var(--gold));
+  background-size:200% 100%; animation:shimmer 1.2s infinite; display:none;
+}
+.lbar.on { display:block; }
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes flick{0%{opacity:1}10%{opacity:.4}20%{opacity:1}30%{opacity:.6}40%{opacity:1}}
+.flick { animation:flick .5s ease; }
+
+/* CONTROLES */
+.ctrl {
+  max-width:1100px; margin:1.2rem auto 0; padding:0 1.5rem;
+  display:flex; gap:.75rem; flex-wrap:wrap; align-items:center;
+}
+.btn {
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.55rem 1.2rem; border-radius:6px;
+  font-family:'Inter',sans-serif; font-size:.83rem; font-weight:600;
+  cursor:pointer; border:none; transition:opacity .15s,transform .1s;
+}
+.btn:active{transform:scale(.97)}
+.btn-gold { background:var(--gold); color:#000; }
+.btn-gold:hover{opacity:.88}
+.btn-gold:disabled{opacity:.4;cursor:not-allowed}
+.lupd { margin-left:auto; font-size:.72rem; color:var(--muted); }
+.dot {
+  display:inline-block; width:6px; height:6px; border-radius:50%;
+  background:var(--green); margin-right:4px; animation:pulse 2s infinite;
+}
+
+/* MAIN */
+.main { max-width:1100px; margin:1.8rem auto 0; padding:0 1.5rem; }
+.slbl-sec {
+  font-size:.64rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:1rem;
+  padding-bottom:.45rem; border-bottom:1px solid var(--border);
+}
+
+/* PODIO + GRID */
+.podium { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:1rem; }
+@media(max-width:700px){ .podium{grid-template-columns:1fr} }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:1rem; margin-bottom:2rem; }
+
+/* CARDS */
+.card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:10px; padding:.95rem 1rem;
+  transition:border-color .2s;
+}
+.card:hover{border-color:var(--goldd)}
+.card.r1{border-color:var(--gold);box-shadow:0 0 22px rgba(245,197,66,.13)}
+.card.r2{border-color:#9CA3AF}
+.card.r3{border-color:#CD7F32}
+.chdr {
+  display:flex; align-items:center;
+  justify-content:space-between; margin-bottom:.7rem; gap:.5rem;
+}
+.rbadge {
+  font-family:'Bebas Neue',sans-serif; font-size:.85rem;
+  width:22px; height:22px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--border); color:var(--muted); flex-shrink:0;
+}
+.rbadge.b1{background:var(--gold);color:#000}
+.rbadge.b2{background:#9CA3AF;color:#000}
+.rbadge.b3{background:#CD7F32;color:#000}
+.pname { font-weight:700; font-size:.95rem; flex:1; margin-left:.4rem; }
+.tpts {
+  font-family:'Bebas Neue',sans-serif; font-size:1.5rem;
+  color:var(--gold); line-height:1;
+  text-shadow:0 0 8px rgba(245,197,66,.35);
+  font-variant-numeric:tabular-nums;
+}
+.ptslbl { font-size:.58rem; color:var(--muted); text-align:right; }
+
+/* EQUIPOS */
+.tlist { display:flex; flex-direction:column; gap:3px; }
+.trow {
+  display:flex; align-items:center; gap:.35rem;
+  padding:3px 0; border-bottom:1px solid rgba(255,255,255,.04);
+  font-size:.78rem;
+}
+.trow:last-child{border-bottom:none}
+.tflag{font-size:.95rem;width:20px;text-align:center;flex-shrink:0}
+.tname{flex:1;color:var(--muted)}
+.tname.pr{color:var(--text);font-weight:600}
+.tname.elim{color:#4B5563;opacity:.55;text-decoration:line-through;font-weight:400}
+.trow.elim .tflag{opacity:.4;filter:grayscale(1)}
+.trow.elim .tep{color:var(--muted)!important}
+.tep {
+  font-variant-numeric:tabular-nums; font-weight:600;
+  font-size:.8rem; min-width:26px; text-align:right; flex-shrink:0;
+}
+.tst {
+  font-size:.62rem; padding:1px 5px; border-radius:3px;
+  font-weight:500; white-space:nowrap; flex-shrink:0;
+}
+.sa{background:rgba(34,197,94,.15);color:var(--green)}
+.se{background:rgba(239,68,68,.15);color:var(--red)}
+.sw{background:rgba(122,139,168,.08);color:var(--muted)}
+
+/* PANEL RESULTADOS */
+.rpanel {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:10px; padding:1.1rem 1.3rem; margin-bottom:2rem;
+}
+.rpanel h3 {
+  font-family:'Bebas Neue',sans-serif; font-size:1rem;
+  letter-spacing:.05em; color:var(--gold); margin-bottom:.7rem;
+}
+#rtxt {
+  font-size:.8rem; color:var(--muted); line-height:1.7;
+  white-space:pre-wrap; max-height:280px; overflow-y:auto;
+}
+#rtxt::-webkit-scrollbar{width:4px}
+#rtxt::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+/* TOAST */
+.toast {
+  position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%);
+  background:#1a0a0a; border:1px solid var(--red); color:#fca5a5;
+  padding:.7rem 1.2rem; border-radius:8px; font-size:.82rem;
+  max-width:90vw; text-align:center; z-index:999; display:none;
+  animation:fadeIn .2s ease;
+}
+.toast.show{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+</style>
+</head>
+<body>
+
+<div class="lbar" id="lbar"></div>
+
+<header class="hdr">
+  <div class="hdr-inner">
+    <div>
+      <div class="eyebrow">⚽ FIFA World Cup 2026 · Quiniela familiar</div>
+      <h1>MARCADOR <span>QUINIELA</span></h1>
+      <div class="pills">
+        <span class="pill">Victoria grupos <strong>6 pts</strong></span>
+        <span class="pill">Empate <strong>2 pts</strong></span>
+        <span class="pill">Octavos <strong>12 pts</strong></span>
+        <span class="pill">Cuartos <strong>18 pts</strong></span>
+        <span class="pill">Semis <strong>24 pts</strong></span>
+        <span class="pill">Campeón <strong>34 pts</strong></span>
+      </div>
+    </div>
+    <div class="sboard">
+      <div class="scell"><span class="snum" id="sc-p">—</span><span class="slbl">Partidos</span></div>
+      <div class="scell"><span class="snum" id="sc-l">0</span><span class="slbl">Líder pts</span></div>
+      <div class="scell"><span class="snum" id="sc-a">48</span><span class="slbl">Activos</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="ctrl">
+  <button class="btn btn-gold" id="btnup" onclick="fetchResultados()">
+    ⚡ Actualizar resultados con IA
+  </button>
+  <span class="lupd" id="lupd">Sin actualizar — presiona el botón para calcular puntos</span>
+</div>
+
+<main class="main">
+  <p class="slbl-sec">Clasificación general &nbsp;·&nbsp; <strong style="color:var(--gold)">*</strong> = equipo compartido</p>
+  <div id="ranking"></div>
+  <div class="rpanel">
+    <h3>📡 Resultados consultados por la IA</h3>
+    <div id="rtxt">Presiona "Actualizar resultados con IA" para buscar los partidos oficiales del Mundial 2026 y calcular automáticamente los puntos de cada participante.</div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── DATOS DE LA QUINIELA ──────────────────────
+const Q = [
+  {n:"Bela",    e:[{t:"Bélgica",p:1,g:"G"},{t:"Sudáfrica",p:0,g:"A"},{t:"Catar",p:0,g:"B"},{t:"Turquía",p:0,g:"D"},{t:"Haití",p:0,g:"C",r:1}]},
+  {n:"Belo",    e:[{t:"Países Bajos",p:1,g:"F"},{t:"Marruecos",p:0,g:"C"},{t:"Australia",p:0,g:"D"},{t:"Colombia",p:0,g:"K"},{t:"Túnez",p:0,g:"F",r:1}]},
+  {n:"Sergio",  e:[{t:"Argentina",p:1,g:"J"},{t:"Japón",p:0,g:"F"},{t:"Rep. de Corea",p:0,g:"A"},{t:"Noruega",p:0,g:"I"},{t:"Irak",p:0,g:"I",r:1}]},
+  {n:"Adriana", e:[{t:"Alemania",p:1,g:"E"},{t:"Argelia",p:0,g:"J"},{t:"Arabia Saudí",p:0,g:"H"},{t:"Jordania",p:0,g:"J"},{t:"Islas Cabo Verde",p:0,g:"H",r:1}]},
+  {n:"Gaby",    e:[{t:"Inglaterra",p:1,g:"L"},{t:"EE.UU.",p:0,g:"D"},{t:"Suecia",p:0,g:"F"},{t:"Panamá",p:0,g:"L"},{t:"Túnez",p:0,g:"F",r:1}]},
+  {n:"Paula",   e:[{t:"Francia",p:1,g:"I"},{t:"Senegal",p:0,g:"I"},{t:"Costa de Marfil",p:0,g:"E"},{t:"Escocia",p:0,g:"C"},{t:"Haití",p:0,g:"C",r:1}]},
+  {n:"Diego",   e:[{t:"Brasil",p:1,g:"C"},{t:"RD Congo",p:0,g:"K"},{t:"Uzbekistán",p:0,g:"K"},{t:"Chequia",p:0,g:"A"},{t:"Irak",p:0,g:"I",r:1}]},
+  {n:"Xime",    e:[{t:"España",p:1,g:"H"},{t:"Paraguay",p:0,g:"D"},{t:"Ghana",p:0,g:"L"},{t:"Uruguay",p:0,g:"H"},{t:"Islas Cabo Verde",p:0,g:"H",r:1}]},
+  {n:"Regina",  e:[{t:"Portugal",p:1,g:"K"},{t:"Bosnia y Herz.",p:0,g:"B"},{t:"RI de Irán",p:0,g:"G"},{t:"Nueva Zelanda",p:0,g:"G"},{t:"Haití",p:0,g:"C",r:1}]},
+  {n:"Gustavo", e:[{t:"México",p:1,g:"A"},{t:"Egipto",p:0,g:"G"},{t:"Austria",p:0,g:"J"},{t:"Ecuador",p:0,g:"E"},{t:"Irak",p:0,g:"I",r:1}]},
+  {n:"David",   e:[{t:"Croacia",p:1,g:"L"},{t:"Canadá",p:0,g:"B"},{t:"Curazao",p:0,g:"E"},{t:"Suiza",p:0,g:"B"},{t:"Islas Cabo Verde",p:0,g:"H",r:1}]}
+];
+
+const FL = {
+  "Bélgica":"🇧🇪","Países Bajos":"🇳🇱","Argentina":"🇦🇷","Alemania":"🇩🇪",
+  "Inglaterra":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","Francia":"🇫🇷","Brasil":"🇧🇷","España":"🇪🇸",
+  "Portugal":"🇵🇹","México":"🇲🇽","Croacia":"🇭🇷","EE.UU.":"🇺🇸",
+  "Paraguay":"🇵🇾","Ghana":"🇬🇭","Sudáfrica":"🇿🇦","Marruecos":"🇲🇦",
+  "Japón":"🇯🇵","Senegal":"🇸🇳","Argelia":"🇩🇿","RD Congo":"🇨🇩",
+  "Bosnia y Herz.":"🇧🇦","Catar":"🇶🇦","Australia":"🇦🇺","Costa de Marfil":"🇨🇮",
+  "Suecia":"🇸🇪","Egipto":"🇪🇬","Islas Cabo Verde":"🇨🇻","Arabia Saudí":"🇸🇦",
+  "Irak":"🇮🇶","Austria":"🇦🇹","Uzbekistán":"🇺🇿","Colombia":"🇨🇴",
+  "Túnez":"🇹🇳","Haití":"🇭🇹","Rep. de Corea":"🇰🇷","RI de Irán":"🇮🇷",
+  "Nueva Zelanda":"🇳🇿","Uruguay":"🇺🇾","Noruega":"🇳🇴","Jordania":"🇯🇴",
+  "Ecuador":"🇪🇨","Chequia":"🇨🇿","Suiza":"🇨🇭","Escocia":"🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+  "Turquía":"🇹🇷","Canadá":"🇨🇦","Panamá":"🇵🇦","Curazao":"🇨🇼"
+};
+const fl = t => FL[t] || "🏳️";
+
+let EQ = {}; // estado de equipos devuelto por la IA
+
+// ── CRITERIO FIFA: pts → diferencia de goles → goles a favor ──
+function golesDe(info) {
+  let gf = 0, gc = 0;
+  for (const part of info?.partidos || []) {
+    const m = /^(\d+)\s*-\s*(\d+)$/.exec((part.resultado || "").trim());
+    if (!m) continue;
+    gf += parseInt(m[1], 10);
+    gc += parseInt(m[2], 10);
+  }
+  return { gf, gc };
+}
+
+// fase de grupos ya terminada en el torneo (algún equipo avanzó de fase)
+function grupTermin() {
+  return Object.values(EQ).some(e => e.fase && e.fase !== "grupos");
+}
+
+// ── RENDER ───────────────────────────────────
+function render() {
+  const grupOver = grupTermin();
+
+  const lista = Q.map(p => {
+    let total = 0, gf = 0, gc = 0;
+    const equipos = p.e.map(e => {
+      const info = EQ[e.t];
+      const pts = info ? info.pts : 0;
+      total += pts;
+      if (info) {
+        const g = golesDe(info);
+        gf += g.gf; gc += g.gc;
+      }
+      return { ...e, pts, info };
+    });
+    return { ...p, equipos, total, gf, gc, gd: gf - gc };
+  }).sort((a, b) => {
+    if (b.total !== a.total) return b.total - a.total;
+    if (b.gd !== a.gd) return b.gd - a.gd;
+    return b.gf - a.gf;
+  });
+
+  let html = `<div class="podium">`;
+  for (let i = 0; i < 3; i++) html += card(lista[i], i+1, grupOver);
+  html += `</div><div class="grid">`;
+  for (let i = 3; i < lista.length; i++) html += card(lista[i], i+1, grupOver);
+  html += `</div>`;
+  document.getElementById("ranking").innerHTML = html;
+
+  const maxPts = Math.max(...lista.map(p => p.total));
+  const activos = Object.values(EQ).filter(e => e.estado==="activo"||e.estado==="campeon").length;
+  document.getElementById("sc-l").textContent = maxPts || 0;
+  if (activos > 0) document.getElementById("sc-a").textContent = activos;
+}
+
+function card(p, rank, grupOver) {
+  const rc = rank===1?"r1":rank===2?"r2":rank===3?"r3":"";
+  const cc = rank===1?"r1":rank===2?"r2":rank===3?"r3":"";
+
+  const rows = p.equipos.map(e => {
+    const pts   = e.pts || 0;
+    const est   = e.info?.estado || "espera";
+    const fase  = e.info?.fase   || "";
+    let sc="sw", sl="Por jugar";
+    if (est==="activo")                            { sc="sa"; sl=fase||"Activo"; }
+    if (est==="eliminado"||est?.includes("elim"))  { sc="se"; sl="Eliminado"; }
+    if (est==="campeon")                           { sc="sa"; sl="🏆 Campeón"; }
+    const eliminado = est==="eliminado"||est?.includes("elim");
+    const elimRow = eliminado && grupOver;
+    return `<div class="trow ${elimRow?"elim":""}">
+      <span class="tflag">${fl(e.t)}</span>
+      <span class="tname ${e.p?"pr":""} ${elimRow?"elim":""}">${e.t}${e.r?" *":""}</span>
+      <span class="tep" style="color:${pts>0?"var(--gold)":"var(--muted)"}">${pts}</span>
+      <span class="tst ${sc}">${sl}</span>
+    </div>`;
+  }).join("");
+
+  return `<div class="card ${rank<=3?"r"+rank:""}">
+    <div class="chdr">
+      <div class="rbadge ${rc}">${rank}</div>
+      <span class="pname">${p.n}</span>
+      <div>
+        <div class="tpts">${p.total}</div>
+        <div class="ptslbl">pts</div>
+      </div>
+    </div>
+    <div class="tlist">${rows}</div>
+  </div>`;
+}
+
+// ── FETCH GEMINI VÍA NETLIFY ─────────────────
+async function fetchResultados() {
+  const btn = document.getElementById("btnup");
+  const bar = document.getElementById("lbar");
+  btn.disabled = true;
+  btn.textContent = "⏳ Consultando IA…";
+  bar.classList.add("on");
+  document.getElementById("rtxt").textContent = "🔍 Buscando resultados oficiales del Mundial 2026…";
+
+  const equipos = [...new Set(Q.flatMap(p => p.e.map(e => e.t)))];
+
+  const prompt = `Busca en internet los resultados OFICIALES más recientes del Mundial de Fútbol FIFA 2026 (junio-julio 2026, sede: USA, Canadá y México).
+
+Para cada uno de estos equipos necesito: todos los partidos jugados con marcador exacto, si siguen activos o fueron eliminados, y en qué fase están ahora.
+
+Equipos: ${equipos.join(", ")}
+
+Sistema de puntos de esta quiniela (los puntos se ACUMULAN conforme avanzan las rondas):
+- Victoria en fase de grupos: 6 pts
+- Empate en fase de grupos: 2 pts
+- Derrota en fase de grupos: 0 pts
+- Clasificar a octavos de final: 12 pts acumulados
+- Clasificar a cuartos de final: 18 pts acumulados
+- Clasificar a semifinales: 24 pts acumulados
+- Tercer lugar: 28 pts acumulados
+- Campeón: 34 pts acumulados
+
+Calcula los puntos TOTALES de cada equipo según esos criterios y los partidos que hayas encontrado.
+
+Responde ÚNICAMENTE con un bloque JSON válido (sin texto antes, sin texto después, sin markdown, sin comillas de código):
+{
+  "partidos_jugados": <número total de partidos disputados en el torneo>,
+  "ultima_actualizacion": "<fecha y hora en que encontraste estos datos>",
+  "equipos": {
+    "<nombre_exacto_del_equipo>": {
+      "pts": <puntos totales calculados>,
+      "estado": "<activo|eliminado|campeon>",
+      "fase": "<grupos|octavos|cuartos|semis|final|campeon|eliminado_grupos|eliminado_octavos|eliminado_cuartos|eliminado_semis>",
+      "partidos": [
+        { "rival": "<nombre>", "resultado": "<2-1>", "tipo": "<victoria|empate|derrota>", "fase": "<grupos|octavos|cuartos|semis|final>" }
+      ]
+    }
+  }
+}`;
+
+  try {
+    const res = await fetch("/.netlify/functions/resultados", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt })
+    });
+
+    if (!res.ok) {
+      const e = await res.json().catch(() => ({}));
+      throw new Error(e.error || `Error HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+    const texto = data.texto || "";
+
+    // Parsear el JSON de la respuesta
+    const match = texto.match(/\{[\s\S]*\}/);
+    if (!match) throw new Error("La IA no devolvió un JSON válido. Intenta de nuevo en unos segundos.");
+
+    const resultado = JSON.parse(match[0]);
+    EQ = resultado.equipos || {};
+
+    document.getElementById("sc-p").textContent = resultado.partidos_jugados || "—";
+
+    render();
+    mostrarResumen(resultado);
+
+    const ahora = new Date().toLocaleString("es-MX",{dateStyle:"short",timeStyle:"short"});
+    document.getElementById("lupd").innerHTML = `<span class="dot"></span>Actualizado ${ahora}`;
+
+    // Animación flicker
+    document.querySelectorAll(".snum,.tpts").forEach(el=>{
+      el.classList.remove("flick"); void el.offsetWidth; el.classList.add("flick");
+    });
+
+  } catch(err) {
+    console.error(err);
+    toast("⚠️ " + err.message);
+    document.getElementById("rtxt").textContent = "Error: " + err.message + "\n\nRevisa que la OPENROUTER_API_KEY esté configurada en Netlify y vuelve a intentarlo.";
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "⚡ Actualizar resultados con IA";
+    bar.classList.remove("on");
+  }
+}
+
+function mostrarResumen(r) {
+  let L = [
+    `📅 ${r.ultima_actualizacion || new Date().toLocaleString("es-MX")}`,
+    `Partidos jugados en el torneo: ${r.partidos_jugados || "—"}`,
+    "─".repeat(46)
+  ];
+  const sorted = Object.entries(r.equipos||{}).sort((a,b)=>b[1].pts-a[1].pts);
+  for (const [nom,info] of sorted) {
+    const ico = info.estado==="campeon"?"🏆":info.estado==="activo"?"✅":"❌";
+    L.push(`\n${ico} ${nom} — ${info.pts} pts (${info.fase||info.estado})`);
+    for (const part of info.partidos||[]) {
+      const pi = part.tipo==="victoria"?"⚽":part.tipo==="empate"?"🤝":"💔";
+      L.push(`   ${pi} vs ${part.rival}: ${part.resultado}`);
+    }
+  }
+  document.getElementById("rtxt").textContent = L.join("\n");
+}
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 6000);
+}
+
+// Render inicial (cards visibles sin puntos)
+render();
+</script>
+</body>
+</html>
