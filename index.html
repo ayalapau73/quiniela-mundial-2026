@@ -193,6 +193,44 @@ h1 span { color:var(--gold); }
 #rtxt::-webkit-scrollbar{width:4px}
 #rtxt::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 
+/* BRACKET */
+.bracket {
+  display:flex; gap:2.2rem; overflow-x:auto; padding:.5rem .2rem 1.6rem;
+  margin-bottom:2rem;
+}
+.bracket-empty {
+  color:var(--muted); font-size:.85rem; padding:1.2rem;
+  background:var(--surface); border:1px solid var(--border); border-radius:10px;
+  width:100%;
+}
+.bround { display:flex; flex-direction:column; justify-content:space-around; gap:1rem; min-width:200px; flex-shrink:0; }
+.brtitle {
+  font-size:.62rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--gold); text-align:center; margin-bottom:.2rem;
+}
+.bmatch-wrap { display:flex; flex-direction:column; justify-content:center; flex:1; position:relative; }
+.bmatch {
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  font-size:.74rem; overflow:hidden;
+}
+.bteam {
+  display:flex; align-items:center; gap:.35rem; padding:.4rem .55rem;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.bteam:last-child{border-bottom:none}
+.bteam.win{background:rgba(245,197,66,.08)}
+.bteam .bflag{font-size:.85rem;flex-shrink:0}
+.bteam .bt-name{flex:1;color:var(--text);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bteam.lose .bt-name{color:var(--muted);font-weight:400;text-decoration:line-through;opacity:.6}
+.bteam .bt-persona{font-size:.6rem;color:var(--muted);flex-shrink:0}
+.bteam .bt-score{font-family:'Bebas Neue',sans-serif;font-size:.9rem;color:var(--gold);flex-shrink:0;min-width:16px;text-align:right}
+.bmatch.tbd { color:var(--muted); text-align:center; padding:.6rem; font-style:italic; }
+/* conectores: línea horizontal a la derecha de cada partido que no sea la última ronda */
+.bround:not(:last-child) .bmatch-wrap::after {
+  content:''; position:absolute; right:-1.1rem; top:50%; width:1.1rem; height:1px;
+  background:var(--border);
+}
+
 /* TOAST */
 .toast {
   position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%);
@@ -215,12 +253,13 @@ h1 span { color:var(--gold); }
       <div class="eyebrow">⚽ FIFA World Cup 2026 · Quiniela familiar</div>
       <h1>MARCADOR <span>QUINIELA</span></h1>
       <div class="pills">
-        <span class="pill">Victoria grupos <strong>6 pts</strong></span>
-        <span class="pill">Empate <strong>2 pts</strong></span>
-        <span class="pill">Octavos <strong>12 pts</strong></span>
-        <span class="pill">Cuartos <strong>18 pts</strong></span>
-        <span class="pill">Semis <strong>24 pts</strong></span>
-        <span class="pill">Campeón <strong>34 pts</strong></span>
+        <span class="pill">Victoria grupos <strong>3 pts</strong></span>
+        <span class="pill">Empate <strong>1 pt</strong></span>
+        <span class="pill">Octavos <strong>6 pts</strong></span>
+        <span class="pill">Cuartos <strong>9 pts</strong></span>
+        <span class="pill">Semis <strong>12 pts</strong></span>
+        <span class="pill">3er lugar <strong>14 pts</strong></span>
+        <span class="pill">Campeón <strong>17 pts</strong></span>
       </div>
     </div>
     <div class="sboard">
@@ -238,6 +277,10 @@ h1 span { color:var(--gold); }
 <main class="main">
   <p class="slbl-sec">Clasificación general &nbsp;·&nbsp; <strong style="color:var(--gold)">*</strong> = equipo compartido</p>
   <div id="ranking"></div>
+
+  <p class="slbl-sec">🏆 Llaves de eliminación directa</p>
+  <div id="bracket" class="bracket"></div>
+
   <div class="rpanel">
     <h3>📡 Resultados consultados por la IA</h3>
     <div id="rtxt">Cargando resultados…</div>
@@ -276,6 +319,11 @@ const FL = {
 };
 const fl = t => FL[t] || "🏳️";
 
+// dueño(s) en la quiniela de un equipo (puede haber más de uno si es compartido)
+function duenosDe(team) {
+  return Q.filter(p => p.e.some(e => e.t === team)).map(p => p.n);
+}
+
 let EQ = {}; // estado de equipos devuelto por la IA
 
 // ── CRITERIO FIFA: pts → diferencia de goles → goles a favor ──
@@ -293,6 +341,57 @@ function golesDe(info) {
 // fase de grupos ya terminada en el torneo (algún equipo avanzó de fase)
 function grupTermin() {
   return Object.values(EQ).some(e => e.fase && e.fase !== "grupos");
+}
+
+// ── BRACKET DE ELIMINACIÓN DIRECTA ───────────
+const RONDAS = [
+  { key: "treintaydos", label: "32avos" },
+  { key: "octavos",     label: "Octavos" },
+  { key: "cuartos",     label: "Cuartos" },
+  { key: "semis",       label: "Semis" },
+  { key: "final",       label: "Final" }
+];
+
+function bteam(nombre, score, esGanador, esConocido) {
+  if (!esConocido) {
+    return `<div class="bteam"><span class="bflag">❔</span><span class="bt-name">Por definir</span></div>`;
+  }
+  const duenos = duenosDe(nombre).join(", ") || "—";
+  return `<div class="bteam ${esGanador?"win":"lose"}">
+    <span class="bflag">${fl(nombre)}</span>
+    <span class="bt-name">${nombre}</span>
+    <span class="bt-persona">${duenos}</span>
+    <span class="bt-score">${score ?? ""}</span>
+  </div>`;
+}
+
+function renderBracket(bracket) {
+  const cont = document.getElementById("bracket");
+  const rondasConDatos = RONDAS.filter(r => Array.isArray(bracket?.[r.key]) && bracket[r.key].length > 0);
+
+  if (rondasConDatos.length === 0) {
+    cont.innerHTML = `<div class="bracket-empty">El bracket aparecerá aquí en cuanto termine la fase de grupos y se sorteen los cruces de eliminación directa.</div>`;
+    return;
+  }
+
+  let html = "";
+  for (const r of rondasConDatos) {
+    const matches = bracket[r.key];
+    html += `<div class="bround"><div class="brtitle">${r.label}</div>`;
+    for (const m of matches) {
+      if (!m || (!m.home && !m.away)) {
+        html += `<div class="bmatch-wrap"><div class="bmatch tbd">Por definir</div></div>`;
+        continue;
+      }
+      const ganador = m.ganador || null;
+      html += `<div class="bmatch-wrap"><div class="bmatch">
+        ${bteam(m.home, m.scoreHome, ganador===m.home, !!m.home)}
+        ${bteam(m.away, m.scoreAway, ganador===m.away, !!m.away)}
+      </div></div>`;
+    }
+    html += `</div>`;
+  }
+  cont.innerHTML = html;
 }
 
 // ── RENDER ───────────────────────────────────
@@ -380,6 +479,7 @@ async function cargarResultados() {
     document.getElementById("sc-p").textContent = resultado.partidos_jugados || "—";
 
     render();
+    renderBracket(resultado.bracket);
     mostrarResumen(resultado);
 
     const cuando = resultado.ultima_actualizacion || "—";
@@ -389,6 +489,7 @@ async function cargarResultados() {
     console.error(err);
     document.getElementById("lupd").textContent = "Aún sin datos — esperando la primera actualización automática";
     document.getElementById("rtxt").textContent = "Todavía no hay resultados.json. Se generará automáticamente con la primera actualización programada.";
+    renderBracket(null);
   }
 }
 
