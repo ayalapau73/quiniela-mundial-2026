@@ -232,10 +232,7 @@ h1 span { color:var(--gold); }
 </header>
 
 <div class="ctrl">
-  <button class="btn btn-gold" id="btnup" onclick="fetchResultados()">
-    ⚡ Actualizar resultados con IA
-  </button>
-  <span class="lupd" id="lupd">Sin actualizar — presiona el botón para calcular puntos</span>
+  <span class="lupd" id="lupd">Cargando última actualización…</span>
 </div>
 
 <main class="main">
@@ -243,11 +240,9 @@ h1 span { color:var(--gold); }
   <div id="ranking"></div>
   <div class="rpanel">
     <h3>📡 Resultados consultados por la IA</h3>
-    <div id="rtxt">Presiona "Actualizar resultados con IA" para buscar los partidos oficiales del Mundial 2026 y calcular automáticamente los puntos de cada participante.</div>
+    <div id="rtxt">Cargando resultados…</div>
   </div>
 </main>
-
-<div class="toast" id="toast"></div>
 
 <script>
 // ── DATOS DE LA QUINIELA ──────────────────────
@@ -371,71 +366,15 @@ function card(p, rank, grupOver) {
   </div>`;
 }
 
-// ── FETCH GEMINI VÍA NETLIFY ─────────────────
-async function fetchResultados() {
-  const btn = document.getElementById("btnup");
-  const bar = document.getElementById("lbar");
-  btn.disabled = true;
-  btn.textContent = "⏳ Consultando IA…";
-  bar.classList.add("on");
-  document.getElementById("rtxt").textContent = "🔍 Buscando resultados oficiales del Mundial 2026…";
-
-  const equipos = [...new Set(Q.flatMap(p => p.e.map(e => e.t)))];
-
-  const prompt = `Busca en internet los resultados OFICIALES más recientes del Mundial de Fútbol FIFA 2026 (junio-julio 2026, sede: USA, Canadá y México).
-
-Para cada uno de estos equipos necesito: todos los partidos jugados con marcador exacto, si siguen activos o fueron eliminados, y en qué fase están ahora.
-
-Equipos: ${equipos.join(", ")}
-
-Sistema de puntos de esta quiniela (los puntos se ACUMULAN conforme avanzan las rondas):
-- Victoria en fase de grupos: 6 pts
-- Empate en fase de grupos: 2 pts
-- Derrota en fase de grupos: 0 pts
-- Clasificar a octavos de final: 12 pts acumulados
-- Clasificar a cuartos de final: 18 pts acumulados
-- Clasificar a semifinales: 24 pts acumulados
-- Tercer lugar: 28 pts acumulados
-- Campeón: 34 pts acumulados
-
-Calcula los puntos TOTALES de cada equipo según esos criterios y los partidos que hayas encontrado.
-
-Responde ÚNICAMENTE con un bloque JSON válido (sin texto antes, sin texto después, sin markdown, sin comillas de código):
-{
-  "partidos_jugados": <número total de partidos disputados en el torneo>,
-  "ultima_actualizacion": "<fecha y hora en que encontraste estos datos>",
-  "equipos": {
-    "<nombre_exacto_del_equipo>": {
-      "pts": <puntos totales calculados>,
-      "estado": "<activo|eliminado|campeon>",
-      "fase": "<grupos|octavos|cuartos|semis|final|campeon|eliminado_grupos|eliminado_octavos|eliminado_cuartos|eliminado_semis>",
-      "partidos": [
-        { "rival": "<nombre>", "resultado": "<2-1>", "tipo": "<victoria|empate|derrota>", "fase": "<grupos|octavos|cuartos|semis|final>" }
-      ]
-    }
-  }
-}`;
-
+// ── CARGA AUTOMÁTICA DE resultados.json ──────
+// Este archivo lo actualiza un proceso programado (cron) cada noche y se
+// sube a GitHub; Netlify lo redeploya solo. Aquí solo lo leemos.
+async function cargarResultados() {
   try {
-    const res = await fetch("/.netlify/functions/resultados", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt })
-    });
+    const res = await fetch("./resultados.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`No se encontró resultados.json (HTTP ${res.status})`);
 
-    if (!res.ok) {
-      const e = await res.json().catch(() => ({}));
-      throw new Error(e.error || `Error HTTP ${res.status}`);
-    }
-
-    const data = await res.json();
-    const texto = data.texto || "";
-
-    // Parsear el JSON de la respuesta
-    const match = texto.match(/\{[\s\S]*\}/);
-    if (!match) throw new Error("La IA no devolvió un JSON válido. Intenta de nuevo en unos segundos.");
-
-    const resultado = JSON.parse(match[0]);
+    const resultado = await res.json();
     EQ = resultado.equipos || {};
 
     document.getElementById("sc-p").textContent = resultado.partidos_jugados || "—";
@@ -443,22 +382,13 @@ Responde ÚNICAMENTE con un bloque JSON válido (sin texto antes, sin texto desp
     render();
     mostrarResumen(resultado);
 
-    const ahora = new Date().toLocaleString("es-MX",{dateStyle:"short",timeStyle:"short"});
-    document.getElementById("lupd").innerHTML = `<span class="dot"></span>Actualizado ${ahora}`;
+    const cuando = resultado.ultima_actualizacion || "—";
+    document.getElementById("lupd").innerHTML = `<span class="dot"></span>Última actualización: ${cuando}`;
 
-    // Animación flicker
-    document.querySelectorAll(".snum,.tpts").forEach(el=>{
-      el.classList.remove("flick"); void el.offsetWidth; el.classList.add("flick");
-    });
-
-  } catch(err) {
+  } catch (err) {
     console.error(err);
-    toast("⚠️ " + err.message);
-    document.getElementById("rtxt").textContent = "Error: " + err.message + "\n\nRevisa que la OPENROUTER_API_KEY esté configurada en Netlify y vuelve a intentarlo.";
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "⚡ Actualizar resultados con IA";
-    bar.classList.remove("on");
+    document.getElementById("lupd").textContent = "Aún sin datos — esperando la primera actualización automática";
+    document.getElementById("rtxt").textContent = "Todavía no hay resultados.json. Se generará automáticamente con la primera actualización programada.";
   }
 }
 
@@ -480,14 +410,9 @@ function mostrarResumen(r) {
   document.getElementById("rtxt").textContent = L.join("\n");
 }
 
-function toast(msg) {
-  const t = document.getElementById("toast");
-  t.textContent = msg; t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 6000);
-}
-
-// Render inicial (cards visibles sin puntos)
+// Render inicial (cards visibles sin puntos) y luego carga resultados.json
 render();
+cargarResultados();
 </script>
 </body>
 </html>
