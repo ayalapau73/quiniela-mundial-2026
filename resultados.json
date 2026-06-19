@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 28,
-  "ultima_actualizacion": "18 jun 2026 (corregido manualmente)",
+  "partidos_jugados": 29,
+  "ultima_actualizacion": "19 jun 2026, 11:51",
   "equipos": {
     "Bélgica": {
       "pts": 1,
@@ -179,6 +179,12 @@
           "rival": "Chequia",
           "resultado": "2-1",
           "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "México",
+          "resultado": "0-1",
+          "tipo": "derrota",
           "fase": "grupos"
         }
       ]
@@ -547,13 +553,19 @@
       ]
     },
     "México": {
-      "pts": 3,
+      "pts": 6,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Sudáfrica",
           "resultado": "2-0",
+          "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Rep. de Corea",
+          "resultado": "1-0",
           "tipo": "victoria",
           "fase": "grupos"
         }
