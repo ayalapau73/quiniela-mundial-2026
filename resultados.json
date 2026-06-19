@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 25,
-  "ultima_actualizacion": "18 jun 2026, 14:32",
+  "partidos_jugados": 28,
+  "ultima_actualizacion": "18 jun 2026, 23:00",
   "equipos": {
     "Bélgica": {
       "pts": 1,
@@ -43,6 +43,12 @@
           "rival": "Suiza",
           "resultado": "1-1",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Canadá",
+          "resultado": "0-6",
+          "tipo": "derrota",
           "fase": "grupos"
         }
       ]
@@ -173,6 +179,12 @@
           "rival": "Chequia",
           "resultado": "2-1",
           "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "México",
+          "resultado": "0-2",
+          "tipo": "derrota",
           "fase": "grupos"
         }
       ]
@@ -505,6 +517,12 @@
           "resultado": "1-1",
           "tipo": "empate",
           "fase": "grupos"
+        },
+        {
+          "rival": "Suiza",
+          "resultado": "1-4",
+          "tipo": "derrota",
+          "fase": "grupos"
         }
       ]
     },
@@ -535,12 +553,18 @@
       ]
     },
     "México": {
-      "pts": 3,
+      "pts": 6,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Sudáfrica",
+          "resultado": "2-0",
+          "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Rep. de Corea",
           "resultado": "2-0",
           "tipo": "victoria",
           "fase": "grupos"
@@ -600,7 +624,7 @@
       ]
     },
     "Canadá": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -608,6 +632,12 @@
           "rival": "Bosnia y Herz.",
           "resultado": "1-1",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Catar",
+          "resultado": "6-0",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -626,7 +656,7 @@
       ]
     },
     "Suiza": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -634,6 +664,12 @@
           "rival": "Catar",
           "resultado": "1-1",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Bosnia y Herz.",
+          "resultado": "4-1",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
