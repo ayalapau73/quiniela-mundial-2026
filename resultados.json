@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 28,
-  "ultima_actualizacion": "19 jun 2026, 11:51",
+  "partidos_jugados": 31,
+  "ultima_actualizacion": "19 jun 2026, 21:38",
   "equipos": {
     "Bélgica": {
       "pts": 1,
@@ -76,6 +76,12 @@
           "resultado": "0-1",
           "tipo": "derrota",
           "fase": "grupos"
+        },
+        {
+          "rival": "Brasil",
+          "resultado": "0-3",
+          "tipo": "derrota",
+          "fase": "grupos"
         }
       ]
     },
@@ -93,7 +99,7 @@
       ]
     },
     "Marruecos": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -101,6 +107,12 @@
           "rival": "Brasil",
           "resultado": "1-1",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Escocia",
+          "resultado": "1-0",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -114,6 +126,12 @@
           "rival": "Turquía",
           "resultado": "2-0",
           "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "EE.UU.",
+          "resultado": "0-2",
+          "tipo": "derrota",
           "fase": "grupos"
         }
       ]
@@ -294,13 +312,19 @@
       ]
     },
     "EE.UU.": {
-      "pts": 3,
+      "pts": 6,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Paraguay",
           "resultado": "4-1",
+          "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Australia",
+          "resultado": "2-0",
           "tipo": "victoria",
           "fase": "grupos"
         }
@@ -381,11 +405,17 @@
           "resultado": "1-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Marruecos",
+          "resultado": "0-1",
+          "tipo": "derrota",
+          "fase": "grupos"
         }
       ]
     },
     "Brasil": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -393,6 +423,12 @@
           "rival": "Marruecos",
           "resultado": "1-1",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Haití",
+          "resultado": "3-0",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
