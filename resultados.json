@@ -771,5 +771,29 @@
       ]
     }
   },
-  "bracket": {}
+  "bracket": {
+    "treintaydos": [
+      {
+        "home": "México",
+        "away": null,
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
+      {
+        "home": "EE.UU.",
+        "away": null,
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
+      {
+        "home": "Alemania",
+        "away": null,
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      }
+    ]
+  }
 }
