@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 31,
-  "ultima_actualizacion": "19 jun 2026, 21:38",
+  "partidos_jugados": 36,
+  "ultima_actualizacion": "21 jun 2026, 13:17",
   "equipos": {
     "Bélgica": {
       "pts": 1,
@@ -86,7 +86,7 @@
       ]
     },
     "Países Bajos": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -94,6 +94,12 @@
           "rival": "Japón",
           "resultado": "2-2",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Suecia",
+          "resultado": "5-1",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -159,6 +165,12 @@
           "resultado": "1-5",
           "tipo": "derrota",
           "fase": "grupos"
+        },
+        {
+          "rival": "Japón",
+          "resultado": "0-4",
+          "tipo": "derrota",
+          "fase": "grupos"
         }
       ]
     },
@@ -176,7 +188,7 @@
       ]
     },
     "Japón": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -184,6 +196,12 @@
           "rival": "Países Bajos",
           "resultado": "2-2",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Túnez",
+          "resultado": "4-0",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -234,13 +252,19 @@
       ]
     },
     "Alemania": {
-      "pts": 3,
+      "pts": 6,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Curazao",
           "resultado": "7-1",
+          "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Costa de Marfil",
+          "resultado": "2-1",
           "tipo": "victoria",
           "fase": "grupos"
         }
@@ -268,6 +292,12 @@
           "rival": "Uruguay",
           "resultado": "1-1",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "España",
+          "resultado": "0-4",
+          "tipo": "derrota",
           "fase": "grupos"
         }
       ]
@@ -340,6 +370,12 @@
           "resultado": "5-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Países Bajos",
+          "resultado": "1-5",
+          "tipo": "derrota",
+          "fase": "grupos"
         }
       ]
     },
@@ -391,6 +427,12 @@
           "rival": "Ecuador",
           "resultado": "1-0",
           "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Alemania",
+          "resultado": "1-2",
+          "tipo": "derrota",
           "fase": "grupos"
         }
       ]
@@ -479,7 +521,7 @@
       ]
     },
     "España": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -487,6 +529,12 @@
           "rival": "Islas Cabo Verde",
           "resultado": "0-0",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Arabia Saudí",
+          "resultado": "4-0",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -634,7 +682,7 @@
       ]
     },
     "Ecuador": {
-      "pts": 0,
+      "pts": 1,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -642,6 +690,12 @@
           "rival": "Costa de Marfil",
           "resultado": "0-1",
           "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Curazao",
+          "resultado": "0-0",
+          "tipo": "empate",
           "fase": "grupos"
         }
       ]
@@ -679,7 +733,7 @@
       ]
     },
     "Curazao": {
-      "pts": 0,
+      "pts": 1,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -687,6 +741,12 @@
           "rival": "Alemania",
           "resultado": "1-7",
           "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Ecuador",
+          "resultado": "0-0",
+          "tipo": "empate",
           "fase": "grupos"
         }
       ]
