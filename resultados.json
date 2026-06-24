@@ -1,15 +1,21 @@
 {
-  "partidos_jugados": 36,
-  "ultima_actualizacion": "21 jun 2026, 13:17",
+  "partidos_jugados": 48,
+  "ultima_actualizacion": "24 jun 2026, 12:02",
   "equipos": {
     "Bélgica": {
-      "pts": 1,
+      "pts": 2,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Egipto",
           "resultado": "1-1",
+          "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "RI de Irán",
+          "resultado": "0-0",
           "tipo": "empate",
           "fase": "grupos"
         }
@@ -55,12 +61,18 @@
     },
     "Turquía": {
       "pts": 0,
-      "estado": "activo",
-      "fase": "grupos",
+      "estado": "eliminado",
+      "fase": "eliminado_grupos",
       "partidos": [
         {
           "rival": "Australia",
           "resultado": "0-2",
+          "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Paraguay",
+          "resultado": "0-1",
           "tipo": "derrota",
           "fase": "grupos"
         }
@@ -68,8 +80,8 @@
     },
     "Haití": {
       "pts": 0,
-      "estado": "activo",
-      "fase": "grupos",
+      "estado": "eliminado",
+      "fase": "eliminado_grupos",
       "partidos": [
         {
           "rival": "Escocia",
@@ -143,7 +155,7 @@
       ]
     },
     "Colombia": {
-      "pts": 3,
+      "pts": 6,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -152,13 +164,19 @@
           "resultado": "3-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "RD Congo",
+          "resultado": "1-0",
+          "tipo": "victoria",
+          "fase": "grupos"
         }
       ]
     },
     "Túnez": {
       "pts": 0,
-      "estado": "activo",
-      "fase": "grupos",
+      "estado": "eliminado",
+      "fase": "eliminado_grupos",
       "partidos": [
         {
           "rival": "Suecia",
@@ -175,13 +193,19 @@
       ]
     },
     "Argentina": {
-      "pts": 3,
+      "pts": 6,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Argelia",
           "resultado": "3-0",
+          "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Austria",
+          "resultado": "2-0",
           "tipo": "victoria",
           "fase": "grupos"
         }
@@ -226,13 +250,19 @@
       ]
     },
     "Noruega": {
-      "pts": 3,
+      "pts": 6,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Irak",
           "resultado": "4-1",
+          "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Senegal",
+          "resultado": "3-2",
           "tipo": "victoria",
           "fase": "grupos"
         }
@@ -246,6 +276,12 @@
         {
           "rival": "Noruega",
           "resultado": "1-4",
+          "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Francia",
+          "resultado": "0-3",
           "tipo": "derrota",
           "fase": "grupos"
         }
@@ -271,7 +307,7 @@
       ]
     },
     "Argelia": {
-      "pts": 0,
+      "pts": 3,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -279,6 +315,12 @@
           "rival": "Argentina",
           "resultado": "0-3",
           "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Jordania",
+          "resultado": "2-1",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -304,19 +346,25 @@
     },
     "Jordania": {
       "pts": 0,
-      "estado": "activo",
-      "fase": "grupos",
+      "estado": "eliminado",
+      "fase": "eliminado_grupos",
       "partidos": [
         {
           "rival": "Austria",
           "resultado": "1-3",
           "tipo": "derrota",
           "fase": "grupos"
+        },
+        {
+          "rival": "Argelia",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "grupos"
         }
       ]
     },
     "Islas Cabo Verde": {
-      "pts": 1,
+      "pts": 2,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -325,11 +373,17 @@
           "resultado": "0-0",
           "tipo": "empate",
           "fase": "grupos"
+        },
+        {
+          "rival": "Uruguay",
+          "resultado": "2-2",
+          "tipo": "empate",
+          "fase": "grupos"
         }
       ]
     },
     "Inglaterra": {
-      "pts": 3,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -337,6 +391,12 @@
           "rival": "Croacia",
           "resultado": "4-2",
           "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Ghana",
+          "resultado": "0-0",
+          "tipo": "empate",
           "fase": "grupos"
         }
       ]
@@ -381,11 +441,17 @@
     },
     "Panamá": {
       "pts": 0,
-      "estado": "activo",
-      "fase": "grupos",
+      "estado": "eliminado",
+      "fase": "eliminado_grupos",
       "partidos": [
         {
           "rival": "Ghana",
+          "resultado": "0-1",
+          "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Croacia",
           "resultado": "0-1",
           "tipo": "derrota",
           "fase": "grupos"
@@ -393,13 +459,19 @@
       ]
     },
     "Francia": {
-      "pts": 3,
+      "pts": 6,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Senegal",
           "resultado": "3-1",
+          "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Irak",
+          "resultado": "3-0",
           "tipo": "victoria",
           "fase": "grupos"
         }
@@ -413,6 +485,12 @@
         {
           "rival": "Francia",
           "resultado": "1-3",
+          "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Noruega",
+          "resultado": "2-3",
           "tipo": "derrota",
           "fase": "grupos"
         }
@@ -485,6 +563,12 @@
           "resultado": "1-1",
           "tipo": "empate",
           "fase": "grupos"
+        },
+        {
+          "rival": "Colombia",
+          "resultado": "0-1",
+          "tipo": "derrota",
+          "fase": "grupos"
         }
       ]
     },
@@ -496,6 +580,12 @@
         {
           "rival": "Colombia",
           "resultado": "1-3",
+          "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Portugal",
+          "resultado": "0-5",
           "tipo": "derrota",
           "fase": "grupos"
         }
@@ -540,7 +630,7 @@
       ]
     },
     "Paraguay": {
-      "pts": 0,
+      "pts": 3,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -549,11 +639,17 @@
           "resultado": "1-4",
           "tipo": "derrota",
           "fase": "grupos"
+        },
+        {
+          "rival": "Turquía",
+          "resultado": "1-0",
+          "tipo": "victoria",
+          "fase": "grupos"
         }
       ]
     },
     "Ghana": {
-      "pts": 3,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -562,11 +658,17 @@
           "resultado": "1-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Inglaterra",
+          "resultado": "0-0",
+          "tipo": "empate",
+          "fase": "grupos"
         }
       ]
     },
     "Uruguay": {
-      "pts": 1,
+      "pts": 2,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -575,11 +677,17 @@
           "resultado": "1-1",
           "tipo": "empate",
           "fase": "grupos"
+        },
+        {
+          "rival": "Islas Cabo Verde",
+          "resultado": "2-2",
+          "tipo": "empate",
+          "fase": "grupos"
         }
       ]
     },
     "Portugal": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -587,6 +695,12 @@
           "rival": "RD Congo",
           "resultado": "1-1",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Uzbekistán",
+          "resultado": "5-0",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -611,13 +725,19 @@
       ]
     },
     "RI de Irán": {
-      "pts": 1,
+      "pts": 2,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
         {
           "rival": "Nueva Zelanda",
           "resultado": "2-2",
+          "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Bélgica",
+          "resultado": "0-0",
           "tipo": "empate",
           "fase": "grupos"
         }
@@ -632,6 +752,12 @@
           "rival": "RI de Irán",
           "resultado": "2-2",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Egipto",
+          "resultado": "1-3",
+          "tipo": "derrota",
           "fase": "grupos"
         }
       ]
@@ -656,7 +782,7 @@
       ]
     },
     "Egipto": {
-      "pts": 1,
+      "pts": 4,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -664,6 +790,12 @@
           "rival": "Bélgica",
           "resultado": "1-1",
           "tipo": "empate",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Nueva Zelanda",
+          "resultado": "3-1",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -677,6 +809,12 @@
           "rival": "Jordania",
           "resultado": "3-1",
           "tipo": "victoria",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Argentina",
+          "resultado": "0-2",
+          "tipo": "derrota",
           "fase": "grupos"
         }
       ]
@@ -701,7 +839,7 @@
       ]
     },
     "Croacia": {
-      "pts": 0,
+      "pts": 3,
       "estado": "activo",
       "fase": "grupos",
       "partidos": [
@@ -709,6 +847,12 @@
           "rival": "Inglaterra",
           "resultado": "2-4",
           "tipo": "derrota",
+          "fase": "grupos"
+        },
+        {
+          "rival": "Panamá",
+          "resultado": "1-0",
+          "tipo": "victoria",
           "fase": "grupos"
         }
       ]
@@ -771,29 +915,5 @@
       ]
     }
   },
-  "bracket": {
-    "treintaydos": [
-      {
-        "home": "México",
-        "away": null,
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
-      },
-      {
-        "home": "EE.UU.",
-        "away": null,
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
-      },
-      {
-        "home": "Alemania",
-        "away": null,
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
-      }
-    ]
-  }
+  "bracket": {}
 }
