@@ -575,15 +575,13 @@ function aplicarEvento(eq, bracketAnim, ev) {
     return;
   }
 
-  // eliminación directa: el ganador suma puntos de avance (bonificación fija
-  // simplificada para la animación) y pasa a la siguiente ronda; el
-  // perdedor queda eliminado.
+  // eliminación directa: los puntos se quedan tal como terminaron en fase de
+  // grupos (sin bono por avanzar); solo cambia el estado/fase y el bracket.
   const ganadorTeam = ev.tipo === "victoria" ? ev.team : ev.tipo === "derrota" ? ev.rival : null;
   if (!ganadorTeam) return; // no debería haber empates en eliminación directa
   const ganador = ganadorTeam === ev.team ? a : b;
   const perdedor = ganador === a ? b : a;
 
-  ganador.pts += 6;
   ganador.estado = "activo";
   ganador.fase = SIGUIENTE_FASE[ev.fase] || ev.fase;
   perdedor.estado = "eliminado";
