@@ -195,13 +195,25 @@ h1 span { color:var(--gold); }
 
 /* BRACKET */
 .bracket {
-  display:flex; gap:2.2rem; overflow-x:auto; padding:.5rem .2rem 1.6rem;
+  overflow-x:auto; padding:.5rem .2rem 1.6rem;
   margin-bottom:2rem;
 }
 .bracket-empty {
   color:var(--muted); font-size:.85rem; padding:1.2rem;
   background:var(--surface); border:1px solid var(--border); border-radius:10px;
   width:100%;
+}
+.bracket-row { display:flex; align-items:center; gap:1.6rem; min-width:max-content; }
+.bracket-side { display:flex; gap:2.2rem; }
+/* truco de espejo: volteamos el lado derecho completo (orden de rondas y
+   conectores se invierten solos) y volteamos de regreso cada tarjeta para
+   que el texto se siga leyendo normal */
+.bracket-side.right { transform:scaleX(-1); }
+.bracket-side.right .bmatch, .bracket-side.right .brtitle, .bracket-side.right .bmatch.tbd {
+  transform:scaleX(-1);
+}
+.bracket-final {
+  display:flex; flex-direction:column; justify-content:center; min-width:200px; flex-shrink:0;
 }
 .bround { display:flex; flex-direction:column; justify-content:space-around; gap:1rem; min-width:200px; flex-shrink:0; }
 .brtitle {
@@ -221,7 +233,8 @@ h1 span { color:var(--gold); }
 .bteam.win{background:rgba(245,197,66,.08)}
 .bteam .bflag{font-size:.85rem;flex-shrink:0}
 .bteam .bt-name{flex:1;color:var(--text);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bteam.lose .bt-name{color:var(--muted);font-weight:400;text-decoration:line-through;opacity:.6}
+.bteam.elim{background:rgba(239,68,68,.08)}
+.bteam.elim .bt-name{color:var(--red);font-weight:400;text-decoration:line-through;opacity:.9}
 .bteam .bt-persona{font-size:.6rem;color:var(--muted);flex-shrink:0}
 .bteam .bt-score{font-family:'Bebas Neue',sans-serif;font-size:.9rem;color:var(--gold);flex-shrink:0;min-width:16px;text-align:right}
 .bmatch.tbd { color:var(--muted); text-align:center; padding:.6rem; font-style:italic; }
@@ -345,19 +358,20 @@ function grupTermin() {
 
 // ── BRACKET DE ELIMINACIÓN DIRECTA ───────────
 const RONDAS = [
-  { key: "treintaydos", label: "32avos" },
+  { key: "treintaydos", label: "Dieciseisavos" },
   { key: "octavos",     label: "Octavos" },
   { key: "cuartos",     label: "Cuartos" },
-  { key: "semis",       label: "Semis" },
-  { key: "final",       label: "Final" }
+  { key: "semis",       label: "Semis" }
 ];
 
-function bteam(nombre, score, esGanador, esConocido) {
+// nombre, marcador, si este equipo ganó, si el partido ya tiene ganador decidido, si el equipo es conocido
+function bteam(nombre, score, esGanador, decidido, esConocido) {
   if (!esConocido) {
     return `<div class="bteam"><span class="bflag">❔</span><span class="bt-name">Por definir</span></div>`;
   }
   const duenos = duenosDe(nombre).join(", ") || "—";
-  return `<div class="bteam ${esGanador?"win":"lose"}">
+  const cls = decidido ? (esGanador ? "win" : "elim") : "";
+  return `<div class="bteam ${cls}">
     <span class="bflag">${fl(nombre)}</span>
     <span class="bt-name">${nombre}</span>
     <span class="bt-persona">${duenos}</span>
@@ -365,33 +379,67 @@ function bteam(nombre, score, esGanador, esConocido) {
   </div>`;
 }
 
+function matchHTML(m) {
+  if (!m || (!m.home && !m.away)) {
+    return `<div class="bmatch-wrap"><div class="bmatch tbd">Por definir</div></div>`;
+  }
+  const ganador = m.ganador || null;
+  const decidido = !!ganador;
+  return `<div class="bmatch-wrap"><div class="bmatch">
+    ${bteam(m.home, m.scoreHome, ganador === m.home, decidido, !!m.home)}
+    ${bteam(m.away, m.scoreAway, ganador === m.away, decidido, !!m.away)}
+  </div></div>`;
+}
+
+function roundColumnHTML(label, matches) {
+  let html = `<div class="bround"><div class="brtitle">${label}</div>`;
+  for (const m of matches) html += matchHTML(m);
+  html += `</div>`;
+  return html;
+}
+
 function renderBracket(bracket) {
   const cont = document.getElementById("bracket");
   const rondasConDatos = RONDAS.filter(r => Array.isArray(bracket?.[r.key]) && bracket[r.key].length > 0);
+  const finalMatches = Array.isArray(bracket?.final) ? bracket.final : [];
 
-  if (rondasConDatos.length === 0) {
+  if (rondasConDatos.length === 0 && finalMatches.length === 0) {
     cont.innerHTML = `<div class="bracket-empty">El bracket aparecerá aquí en cuanto termine la fase de grupos y se sorteen los cruces de eliminación directa.</div>`;
     return;
   }
 
-  let html = "";
-  for (const r of rondasConDatos) {
-    const matches = bracket[r.key];
-    html += `<div class="bround"><div class="brtitle">${r.label}</div>`;
-    for (const m of matches) {
-      if (!m || (!m.home && !m.away)) {
-        html += `<div class="bmatch-wrap"><div class="bmatch tbd">Por definir</div></div>`;
-        continue;
-      }
-      const ganador = m.ganador || null;
-      html += `<div class="bmatch-wrap"><div class="bmatch">
-        ${bteam(m.home, m.scoreHome, ganador===m.home, !!m.home)}
-        ${bteam(m.away, m.scoreAway, ganador===m.away, !!m.away)}
-      </div></div>`;
-    }
-    html += `</div>`;
+  // Mientras solo haya una ronda con datos y no haya Final, mostramos una sola
+  // columna (no alcanza para armar la forma de "dos lados convergiendo").
+  if (rondasConDatos.length <= 1 && finalMatches.length === 0) {
+    const r = rondasConDatos[0];
+    cont.innerHTML = `<div class="bracket-row"><div class="bracket-side left">${roundColumnHTML(r.label, bracket[r.key])}</div></div>`;
+    return;
   }
-  cont.innerHTML = html;
+
+  // Dividimos los partidos de cada ronda en dos mitades para armar los dos
+  // lados del cuadro que convergen hacia la Final en el centro.
+  let leftHTML = "", rightHTML = "";
+  for (const r of rondasConDatos) {
+    const arr = bracket[r.key];
+    const mid = Math.ceil(arr.length / 2);
+    const izq = arr.slice(0, mid);
+    const der = arr.slice(mid);
+    if (izq.length) leftHTML += roundColumnHTML(r.label, izq);
+    if (der.length) rightHTML += roundColumnHTML(r.label, der);
+  }
+
+  let finalHTML;
+  if (finalMatches.length) {
+    finalHTML = `<div class="bracket-final"><div class="brtitle">Final</div>${matchHTML(finalMatches[0])}</div>`;
+  } else {
+    finalHTML = `<div class="bracket-final"><div class="brtitle">Final</div><div class="bmatch tbd">Por definir</div></div>`;
+  }
+
+  cont.innerHTML = `<div class="bracket-row">
+    <div class="bracket-side left">${leftHTML}</div>
+    ${finalHTML}
+    <div class="bracket-side right">${rightHTML}</div>
+  </div>`;
 }
 
 // ── RENDER ───────────────────────────────────
