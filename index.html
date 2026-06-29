@@ -299,7 +299,6 @@ h1 span { color:var(--gold); }
   <div id="ranking"></div>
 
   <p class="slbl-sec">🏆 Llaves de eliminación directa</p>
-  <p class="bracket-scroll-hint">⟷ desliza para ver todas las rondas</p>
   <div id="bracket" class="bracket"></div>
 
   <div class="rpanel">
@@ -366,11 +365,19 @@ function grupTermin() {
 
 // ── BRACKET DE ELIMINACIÓN DIRECTA ───────────
 const RONDAS = [
-  { key: "treintaydos", label: "Dieciseisavos" },
-  { key: "octavos",     label: "Octavos" },
-  { key: "cuartos",     label: "Cuartos" },
-  { key: "semis",       label: "Semis" }
+  { key: "treintaydos", label: "Dieciseisavos", count: 16 },
+  { key: "octavos",     label: "Octavos",       count: 8 },
+  { key: "cuartos",     label: "Cuartos",        count: 4 },
+  { key: "semis",       label: "Semis",          count: 2 }
 ];
+
+// rellena el arreglo con null (= "por definir") hasta llegar al número de
+// partidos que esa ronda debería tener, así las columnas siempre salen completas
+function padMatches(arr, count) {
+  const out = Array.isArray(arr) ? arr.slice(0, count) : [];
+  while (out.length < count) out.push(null);
+  return out;
+}
 
 // nombre, marcador, si este equipo ganó, si el partido ya tiene ganador decidido, si el equipo es conocido
 function bteam(nombre, score, esGanador, decidido, esConocido) {
@@ -410,40 +417,23 @@ function roundColumnHTML(label, matches) {
 
 function renderBracket(bracket) {
   const cont = document.getElementById("bracket");
-  const rondasConDatos = RONDAS.filter(r => Array.isArray(bracket?.[r.key]) && bracket[r.key].length > 0);
-  const finalMatches = Array.isArray(bracket?.final) ? bracket.final : [];
 
-  if (rondasConDatos.length === 0 && finalMatches.length === 0) {
-    cont.innerHTML = `<div class="bracket-empty">El bracket aparecerá aquí en cuanto termine la fase de grupos y se sorteen los cruces de eliminación directa.</div>`;
-    return;
-  }
-
-  // Mientras solo haya una ronda con datos y no haya Final, mostramos una sola
-  // columna (no alcanza para armar la forma de "dos lados convergiendo").
-  if (rondasConDatos.length <= 1 && finalMatches.length === 0) {
-    const r = rondasConDatos[0];
-    cont.innerHTML = `<div class="bracket-row"><div class="bracket-side left">${roundColumnHTML(r.label, bracket[r.key])}</div></div>`;
-    return;
-  }
-
-  // Dividimos los partidos de cada ronda en dos mitades para armar los dos
-  // lados del cuadro que convergen hacia la Final en el centro.
+  // Siempre dibujamos las 5 columnas completas (Dieciseisavos a Final), con
+  // "Por definir" en los espacios que todavía no se conocen.
   let leftHTML = "", rightHTML = "";
-  for (const r of rondasConDatos) {
-    const arr = bracket[r.key];
-    const mid = Math.ceil(arr.length / 2);
+  for (const r of RONDAS) {
+    const arr = padMatches(bracket?.[r.key], r.count);
+    const mid = r.count / 2;
     const izq = arr.slice(0, mid);
     const der = arr.slice(mid);
-    if (izq.length) leftHTML += roundColumnHTML(r.label, izq);
-    if (der.length) rightHTML += roundColumnHTML(r.label, der);
+    leftHTML += roundColumnHTML(r.label, izq);
+    rightHTML += roundColumnHTML(r.label, der);
   }
 
-  let finalHTML;
-  if (finalMatches.length) {
-    finalHTML = `<div class="bracket-final"><div class="brtitle">Final</div>${matchHTML(finalMatches[0])}</div>`;
-  } else {
-    finalHTML = `<div class="bracket-final"><div class="brtitle">Final</div><div class="bmatch tbd">Por definir</div></div>`;
-  }
+  const finalMatches = Array.isArray(bracket?.final) ? bracket.final : [];
+  const finalHTML = finalMatches.length
+    ? `<div class="bracket-final"><div class="brtitle">Final</div>${matchHTML(finalMatches[0])}</div>`
+    : `<div class="bracket-final"><div class="brtitle">Final</div><div class="bmatch tbd">Por definir</div></div>`;
 
   cont.innerHTML = `<div class="bracket-row">
     <div class="bracket-side left">${leftHTML}</div>
