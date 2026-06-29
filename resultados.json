@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 72,
-  "ultima_actualizacion": "28 jun 2026, 07:13",
+  "partidos_jugados": 74,
+  "ultima_actualizacion": "29 jun 2026, 15:40 (actualizado manualmente)",
   "equipos": {
     "Bélgica": {
       "pts": 5,
@@ -29,8 +29,8 @@
     },
     "Sudáfrica": {
       "pts": 4,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "México",
@@ -49,6 +49,12 @@
           "resultado": "1-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Canadá",
+          "resultado": "0-1",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -279,8 +285,8 @@
     },
     "Japón": {
       "pts": 5,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Países Bajos",
@@ -299,6 +305,12 @@
           "resultado": "1-1",
           "tipo": "empate",
           "fase": "grupos"
+        },
+        {
+          "rival": "Brasil",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -703,9 +715,9 @@
       ]
     },
     "Brasil": {
-      "pts": 7,
+      "pts": 13,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Marruecos",
@@ -724,6 +736,12 @@
           "resultado": "3-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Japón",
+          "resultado": "2-1",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1128,9 +1146,9 @@
       ]
     },
     "Canadá": {
-      "pts": 4,
+      "pts": 10,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Bosnia y Herz.",
@@ -1149,6 +1167,12 @@
           "resultado": "1-2",
           "tipo": "derrota",
           "fase": "grupos"
+        },
+        {
+          "rival": "Sudáfrica",
+          "resultado": "1-0",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1208,9 +1232,9 @@
       {
         "home": "Sudáfrica",
         "away": "Canadá",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 0,
+        "scoreAway": 1,
+        "ganador": "Canadá"
       },
       {
         "home": "Países Bajos",
@@ -1222,9 +1246,9 @@
       {
         "home": "Brasil",
         "away": "Japón",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 2,
+        "scoreAway": 1,
+        "ganador": "Brasil"
       },
       {
         "home": "EE.UU.",
