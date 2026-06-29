@@ -219,9 +219,9 @@ h1 span { color:var(--gold); }
   transform:scaleX(-1);
 }
 .bracket-final {
-  display:flex; flex-direction:column; justify-content:center; min-width:150px; flex-shrink:0;
+  display:flex; flex-direction:column; justify-content:center; min-width:120px; flex-shrink:0;
 }
-.bround { display:flex; flex-direction:column; justify-content:space-around; gap:.7rem; min-width:150px; flex-shrink:0; }
+.bround { display:flex; flex-direction:column; justify-content:space-around; gap:.7rem; min-width:120px; flex-shrink:0; }
 .brtitle {
   font-size:.6rem; letter-spacing:.13em; text-transform:uppercase;
   color:var(--gold); text-align:center; margin-bottom:.2rem; white-space:nowrap;
@@ -232,17 +232,18 @@ h1 span { color:var(--gold); }
   font-size:.68rem; overflow:hidden;
 }
 .bteam {
-  display:flex; align-items:center; gap:.35rem; padding:.4rem .55rem;
+  display:flex; align-items:center; gap:.35rem; padding:.3rem .5rem;
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 .bteam:last-child{border-bottom:none}
 .bteam.win{background:rgba(245,197,66,.08)}
-.bteam .bflag{font-size:.85rem;flex-shrink:0}
-.bteam .bt-name{flex:1;color:var(--text);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bteam .bflag{font-size:.8rem;flex-shrink:0}
+.bteam .bt-info{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.bteam .bt-name{color:var(--text);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bteam.elim{background:rgba(239,68,68,.08)}
 .bteam.elim .bt-name{color:var(--red);font-weight:400;text-decoration:line-through;opacity:.9}
-.bteam .bt-persona{font-size:.6rem;color:var(--muted);flex-shrink:0}
-.bteam .bt-score{font-family:'Bebas Neue',sans-serif;font-size:.9rem;color:var(--gold);flex-shrink:0;min-width:16px;text-align:right}
+.bteam .bt-persona{font-size:.56rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bteam .bt-score{font-family:'Bebas Neue',sans-serif;font-size:.85rem;color:var(--gold);flex-shrink:0;min-width:14px;text-align:right}
 .bmatch.tbd { color:var(--muted); text-align:center; padding:.6rem; font-style:italic; }
 /* conectores: línea horizontal a la derecha de cada partido que no sea la última ronda */
 .bround:not(:last-child) .bmatch-wrap::after {
@@ -380,8 +381,10 @@ function bteam(nombre, score, esGanador, decidido, esConocido) {
   const cls = decidido ? (esGanador ? "win" : "elim") : "";
   return `<div class="bteam ${cls}">
     <span class="bflag">${fl(nombre)}</span>
-    <span class="bt-name">${nombre}</span>
-    <span class="bt-persona">${duenos}</span>
+    <span class="bt-info">
+      <span class="bt-name">${nombre}</span>
+      <span class="bt-persona">${duenos}</span>
+    </span>
     <span class="bt-score">${score ?? ""}</span>
   </div>`;
 }
