@@ -294,6 +294,7 @@ h1 span { color:var(--gold); }
 </header>
 
 <div class="ctrl">
+  <button class="btn btn-gold" id="btnReplay" onclick="animarCronologia()">▶ Reproducir cronología</button>
   <span class="lupd" id="lupd">Cargando última actualización…</span>
 </div>
 
@@ -349,7 +350,10 @@ function duenosDe(team) {
   return Q.filter(p => p.e.some(e => e.t === team)).map(p => p.n);
 }
 
-let EQ = {}; // estado de equipos devuelto por la IA
+let EQ = {}; // estado de equipos devuelto por la IA (vista actual mostrada)
+let ULTIMO_RESULTADO = null; // último resultados.json cargado, fijo, para poder volver a él tras la animación
+let animando = false;
+let cronologiaAbort = false;
 
 // ── CRITERIO FIFA: pts → diferencia de goles → goles a favor ──
 function golesDe(info) {
@@ -521,12 +525,124 @@ function card(p, rank, grupOver) {
 // ── CARGA AUTOMÁTICA DE resultados.json ──────
 // Este archivo lo actualiza un proceso programado (cron) cada noche y se
 // sube a GitHub; Netlify lo redeploya solo. Aquí solo lo leemos.
+// ── ANIMACIÓN: REPRODUCIR CRONOLOGÍA ─────────
+// Reconstruye, a partir del resultados.json actual, la lista de partidos
+// jugados (sin duplicar, ya que cada partido queda registrado en los dos
+// equipos) y los va aplicando uno por uno con una pequeña pausa, simulando
+// cómo se fueron jugando. Es un orden aproximado (agrupado por fase: grupos
+// primero, luego cada ronda de eliminación directa) ya que no guardamos la
+// fecha/hora exacta de cada partido — no es 100% cronológico al minuto.
+const ORDEN_FASE = { grupos: 0, treintaydos: 1, octavos: 2, cuartos: 3, semis: 4, final: 5 };
+const SIGUIENTE_FASE = { treintaydos: "octavos", octavos: "cuartos", cuartos: "semis", semis: "final" };
+
+function construirEventos(equiposData) {
+  const vistos = new Set();
+  const eventos = [];
+  for (const [team, info] of Object.entries(equiposData)) {
+    for (const p of info.partidos || []) {
+      const golesOrdenados = p.resultado.split("-").map(Number).sort((a, b) => a - b).join("-");
+      const par = [team, p.rival].sort().join("||");
+      const key = `${par}||${p.fase}||${golesOrdenados}`;
+      if (vistos.has(key)) continue;
+      vistos.add(key);
+      eventos.push({ team, rival: p.rival, resultado: p.resultado, tipo: p.tipo, fase: p.fase });
+    }
+  }
+  eventos.sort((a, b) => (ORDEN_FASE[a.fase] ?? 9) - (ORDEN_FASE[b.fase] ?? 9));
+  return eventos;
+}
+
+function equiposVacios(equiposData) {
+  const out = {};
+  for (const team of Object.keys(equiposData)) out[team] = { pts: 0, estado: "espera", fase: "", partidos: [] };
+  return out;
+}
+
+function aplicarEvento(eq, bracketAnim, ev) {
+  const a = eq[ev.team], b = eq[ev.rival];
+  if (!a || !b) return;
+
+  a.partidos.push({ rival: ev.rival, resultado: ev.resultado, tipo: ev.tipo, fase: ev.fase });
+  const [g1, g2] = ev.resultado.split("-");
+  const tipoRival = ev.tipo === "victoria" ? "derrota" : ev.tipo === "derrota" ? "victoria" : "empate";
+  b.partidos.push({ rival: ev.team, resultado: `${g2}-${g1}`, tipo: tipoRival, fase: ev.fase });
+
+  if (ev.fase === "grupos") {
+    const pts = ev.tipo === "victoria" ? [3, 0] : ev.tipo === "derrota" ? [0, 3] : [1, 1];
+    a.pts += pts[0]; b.pts += pts[1];
+    if (a.estado !== "eliminado") { a.estado = "activo"; a.fase = "grupos"; }
+    if (b.estado !== "eliminado") { b.estado = "activo"; b.fase = "grupos"; }
+    return;
+  }
+
+  // eliminación directa: el ganador suma puntos de avance (bonificación fija
+  // simplificada para la animación) y pasa a la siguiente ronda; el
+  // perdedor queda eliminado.
+  const ganadorTeam = ev.tipo === "victoria" ? ev.team : ev.tipo === "derrota" ? ev.rival : null;
+  if (!ganadorTeam) return; // no debería haber empates en eliminación directa
+  const ganador = ganadorTeam === ev.team ? a : b;
+  const perdedor = ganador === a ? b : a;
+
+  ganador.pts += 6;
+  ganador.estado = "activo";
+  ganador.fase = SIGUIENTE_FASE[ev.fase] || ev.fase;
+  perdedor.estado = "eliminado";
+  perdedor.fase = `eliminado_${ev.fase}`;
+
+  const arr = bracketAnim[ev.fase] = bracketAnim[ev.fase] || [];
+  let m = arr.find(x => x && ((x.home === ev.team && x.away === ev.rival) || (x.home === ev.rival && x.away === ev.team)));
+  if (!m) { m = { home: ev.team, away: ev.rival, scoreHome: null, scoreAway: null, ganador: null }; arr.push(m); }
+  m.scoreHome = m.home === ev.team ? Number(g1) : Number(g2);
+  m.scoreAway = m.home === ev.team ? Number(g2) : Number(g1);
+  m.ganador = ganadorTeam;
+
+  const sig = SIGUIENTE_FASE[ev.fase];
+  if (sig) {
+    bracketAnim[sig] = bracketAnim[sig] || [];
+    const yaEsta = bracketAnim[sig].some(x => x && (x.home === ganadorTeam || x.away === ganadorTeam));
+    if (!yaEsta) bracketAnim[sig].push({ home: ganadorTeam, away: null, scoreHome: null, scoreAway: null, ganador: null });
+  }
+}
+
+async function animarCronologia() {
+  if (animando) { cronologiaAbort = true; return; }
+  if (!ULTIMO_RESULTADO) return;
+
+  const btn = document.getElementById("btnReplay");
+  animando = true;
+  cronologiaAbort = false;
+  btn.textContent = "⏹ Detener";
+
+  const eventos = construirEventos(ULTIMO_RESULTADO.equipos);
+  const equiposAnim = equiposVacios(ULTIMO_RESULTADO.equipos);
+  const bracketAnim = {};
+
+  for (const ev of eventos) {
+    if (cronologiaAbort) break;
+    aplicarEvento(equiposAnim, bracketAnim, ev);
+    EQ = equiposAnim;
+    render();
+    renderBracket(bracketAnim);
+    document.getElementById("lupd").innerHTML = `<span class="dot"></span>${ev.team} ${ev.resultado} ${ev.rival}`;
+    await new Promise(r => setTimeout(r, 550));
+  }
+
+  // siempre volvemos a dejar fija la vista real, sin importar si se completó o se detuvo
+  EQ = ULTIMO_RESULTADO.equipos;
+  render();
+  renderBracket(ULTIMO_RESULTADO.bracket);
+  document.getElementById("lupd").innerHTML = `<span class="dot"></span>Última actualización: ${ULTIMO_RESULTADO.ultima_actualizacion || "—"}`;
+  btn.textContent = "▶ Reproducir cronología";
+  animando = false;
+}
+
 async function cargarResultados() {
   try {
     const res = await fetch("./resultados.json", { cache: "no-store" });
     if (!res.ok) throw new Error(`No se encontró resultados.json (HTTP ${res.status})`);
 
     const resultado = await res.json();
+    ULTIMO_RESULTADO = resultado;
     EQ = resultado.equipos || {};
 
     document.getElementById("sc-p").textContent = resultado.partidos_jugados || "—";
