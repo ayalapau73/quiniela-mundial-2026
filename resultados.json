@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 75,
-  "ultima_actualizacion": "29 jun 2026, 21:00 (actualizado manualmente)",
+  "partidos_jugados": 76,
+  "ultima_actualizacion": "29 jun 2026, 22:30 (actualizado manualmente)",
   "equipos": {
     "Bélgica": {
       "pts": 5,
@@ -135,8 +135,8 @@
     },
     "Países Bajos": {
       "pts": 7,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Japón",
@@ -155,13 +155,19 @@
           "resultado": "3-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Marruecos",
+          "resultado": "1-1 (pen 2-3)",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
     "Marruecos": {
       "pts": 7,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Brasil",
@@ -180,6 +186,12 @@
           "resultado": "4-2",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Países Bajos",
+          "resultado": "1-1 (pen 3-2)",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1251,9 +1263,10 @@
       {
         "home": "Países Bajos",
         "away": "Marruecos",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 1,
+        "scoreAway": 1,
+        "ganador": "Marruecos",
+        "penales": "2-3"
       },
       {
         "home": "Brasil",
@@ -1358,7 +1371,7 @@
     "octavos": [
       {
         "home": "Canadá",
-        "away": null,
+        "away": "Marruecos",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
