@@ -1254,6 +1254,21 @@
   "bracket": {
     "treintaydos": [
       {
+        "home": "Alemania",
+        "away": "Paraguay",
+        "scoreHome": 1,
+        "scoreAway": 1,
+        "ganador": "Paraguay",
+        "penales": "3-4"
+      },
+      {
+        "home": "Francia",
+        "away": "Suecia",
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
+      {
         "home": "Sudáfrica",
         "away": "Canadá",
         "scoreHome": 0,
@@ -1269,11 +1284,18 @@
         "penales": "2-3"
       },
       {
-        "home": "Brasil",
-        "away": "Japón",
-        "scoreHome": 2,
-        "scoreAway": 1,
-        "ganador": "Brasil"
+        "home": "Portugal",
+        "away": "Croacia",
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
+      {
+        "home": "España",
+        "away": "Austria",
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
       },
       {
         "home": "EE.UU.",
@@ -1283,37 +1305,22 @@
         "ganador": null
       },
       {
-        "home": "Alemania",
-        "away": "Paraguay",
-        "scoreHome": 1,
+        "home": "Bélgica",
+        "away": "Senegal",
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
+      {
+        "home": "Brasil",
+        "away": "Japón",
+        "scoreHome": 2,
         "scoreAway": 1,
-        "ganador": "Paraguay",
-        "penales": "3-4"
+        "ganador": "Brasil"
       },
       {
         "home": "Costa de Marfil",
         "away": "Noruega",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
-      },
-      {
-        "home": "Francia",
-        "away": "Suecia",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
-      },
-      {
-        "home": "Australia",
-        "away": "Egipto",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
-      },
-      {
-        "home": "Argentina",
-        "away": "Islas Cabo Verde",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
@@ -1333,22 +1340,15 @@
         "ganador": null
       },
       {
-        "home": "Bélgica",
-        "away": "Senegal",
+        "home": "Argentina",
+        "away": "Islas Cabo Verde",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
       },
       {
-        "home": "España",
-        "away": "Austria",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
-      },
-      {
-        "home": "Portugal",
-        "away": "Croacia",
+        "home": "Australia",
+        "away": "Egipto",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
@@ -1370,12 +1370,21 @@
     ],
     "octavos": [
       {
+        "home": "Paraguay",
+        "away": null,
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
+      {
         "home": "Canadá",
         "away": "Marruecos",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
       },
+      null,
+      null,
       {
         "home": "Brasil",
         "away": null,
@@ -1383,13 +1392,9 @@
         "scoreAway": null,
         "ganador": null
       },
-      {
-        "home": "Paraguay",
-        "away": null,
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
-      }
+      null,
+      null,
+      null
     ]
   }
 }
