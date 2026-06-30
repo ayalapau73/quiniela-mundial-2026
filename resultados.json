@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 74,
-  "ultima_actualizacion": "29 jun 2026, 15:40 (actualizado manualmente)",
+  "partidos_jugados": 75,
+  "ultima_actualizacion": "29 jun 2026, 21:00 (actualizado manualmente)",
   "equipos": {
     "Bélgica": {
       "pts": 5,
@@ -391,8 +391,8 @@
     },
     "Alemania": {
       "pts": 6,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Curazao",
@@ -411,6 +411,12 @@
           "resultado": "1-2",
           "tipo": "derrota",
           "fase": "grupos"
+        },
+        {
+          "rival": "Paraguay",
+          "resultado": "1-1 (pen 3-4)",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -848,7 +854,7 @@
     "Paraguay": {
       "pts": 4,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "EE.UU.",
@@ -867,6 +873,12 @@
           "resultado": "0-0",
           "tipo": "empate",
           "fase": "grupos"
+        },
+        {
+          "rival": "Alemania",
+          "resultado": "1-1 (pen 4-3)",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1260,9 +1272,10 @@
       {
         "home": "Alemania",
         "away": "Paraguay",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 1,
+        "scoreAway": 1,
+        "ganador": "Paraguay",
+        "penales": "3-4"
       },
       {
         "home": "Costa de Marfil",
