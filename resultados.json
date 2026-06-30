@@ -1369,6 +1369,13 @@
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
+      },
+      {
+        "home": "Paraguay",
+        "away": null,
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
       }
     ]
   }
