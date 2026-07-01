@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 76,
-  "ultima_actualizacion": "29 jun 2026, 22:30 (actualizado manualmente)",
+  "partidos_jugados": 80,
+  "ultima_actualizacion": "1 jul 2026, 12:00",
   "equipos": {
     "Bélgica": {
       "pts": 5,
@@ -354,7 +354,7 @@
     "Noruega": {
       "pts": 6,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Irak",
@@ -373,6 +373,12 @@
           "resultado": "1-4",
           "tipo": "derrota",
           "fase": "grupos"
+        },
+        {
+          "rival": "Costa de Marfil",
+          "resultado": "2-1",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -535,7 +541,7 @@
     "Inglaterra": {
       "pts": 7,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Croacia",
@@ -554,6 +560,12 @@
           "resultado": "2-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "RD Congo",
+          "resultado": "2-1",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -584,8 +596,8 @@
     },
     "Suecia": {
       "pts": 4,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Túnez",
@@ -604,6 +616,12 @@
           "resultado": "1-1",
           "tipo": "empate",
           "fase": "grupos"
+        },
+        {
+          "rival": "Francia",
+          "resultado": "0-3",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -635,7 +653,7 @@
     "Francia": {
       "pts": 9,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Senegal",
@@ -654,6 +672,12 @@
           "resultado": "4-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Suecia",
+          "resultado": "3-0",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -684,8 +708,8 @@
     },
     "Costa de Marfil": {
       "pts": 6,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Ecuador",
@@ -704,6 +728,12 @@
           "resultado": "2-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Noruega",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -765,8 +795,8 @@
     },
     "RD Congo": {
       "pts": 4,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Portugal",
@@ -785,6 +815,12 @@
           "resultado": "3-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Inglaterra",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1047,7 +1083,7 @@
     "México": {
       "pts": 9,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Sudáfrica",
@@ -1066,6 +1102,12 @@
           "resultado": "3-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Ecuador",
+          "resultado": "2-0",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1121,8 +1163,8 @@
     },
     "Ecuador": {
       "pts": 4,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Costa de Marfil",
@@ -1141,6 +1183,12 @@
           "resultado": "2-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "México",
+          "resultado": "0-2",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1264,9 +1312,9 @@
       {
         "home": "Francia",
         "away": "Suecia",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 3,
+        "scoreAway": 0,
+        "ganador": "Francia"
       },
       {
         "home": "Sudáfrica",
@@ -1321,23 +1369,23 @@
       {
         "home": "Costa de Marfil",
         "away": "Noruega",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 1,
+        "scoreAway": 2,
+        "ganador": "Noruega"
       },
       {
         "home": "México",
         "away": "Ecuador",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 2,
+        "scoreAway": 0,
+        "ganador": "México"
       },
       {
         "home": "Inglaterra",
         "away": "RD Congo",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 2,
+        "scoreAway": 1,
+        "ganador": "Inglaterra"
       },
       {
         "home": "Argentina",
@@ -1371,7 +1419,7 @@
     "octavos": [
       {
         "home": "Paraguay",
-        "away": null,
+        "away": "Francia",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
@@ -1387,12 +1435,18 @@
       null,
       {
         "home": "Brasil",
-        "away": null,
+        "away": "Noruega",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
       },
-      null,
+      {
+        "home": "México",
+        "away": "Inglaterra",
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
       null,
       null
     ]
