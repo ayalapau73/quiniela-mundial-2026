@@ -1,11 +1,11 @@
 {
-  "partidos_jugados": 80,
-  "ultima_actualizacion": "1 jul 2026, 12:00",
+  "partidos_jugados": 82,
+  "ultima_actualizacion": "2 jul 2026, 20:00 (actualizado manualmente)",
   "equipos": {
     "Bélgica": {
       "pts": 5,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Egipto",
@@ -24,6 +24,12 @@
           "resultado": "5-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Senegal",
+          "resultado": "3-2",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -379,6 +385,12 @@
           "resultado": "2-1",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Costa de Marfil",
+          "resultado": "2-1",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -566,13 +578,19 @@
           "resultado": "2-1",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "RD Congo",
+          "resultado": "2-1",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
     "EE.UU.": {
       "pts": 6,
       "estado": "activo",
-      "fase": "treintaydos",
+      "fase": "octavos",
       "partidos": [
         {
           "rival": "Paraguay",
@@ -591,6 +609,12 @@
           "resultado": "2-3",
           "tipo": "derrota",
           "fase": "grupos"
+        },
+        {
+          "rival": "Bosnia y Herz.",
+          "resultado": "2-0",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -616,6 +640,12 @@
           "resultado": "1-1",
           "tipo": "empate",
           "fase": "grupos"
+        },
+        {
+          "rival": "Francia",
+          "resultado": "0-3",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         },
         {
           "rival": "Francia",
@@ -678,13 +708,19 @@
           "resultado": "3-0",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Suecia",
+          "resultado": "3-0",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
     "Senegal": {
       "pts": 3,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Francia",
@@ -703,6 +739,12 @@
           "resultado": "5-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Bélgica",
+          "resultado": "2-3",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -728,6 +770,12 @@
           "resultado": "2-0",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Noruega",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         },
         {
           "rival": "Noruega",
@@ -815,6 +863,12 @@
           "resultado": "3-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "Inglaterra",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         },
         {
           "rival": "Inglaterra",
@@ -1007,8 +1061,8 @@
     },
     "Bosnia y Herz.": {
       "pts": 4,
-      "estado": "activo",
-      "fase": "treintaydos",
+      "estado": "eliminado",
+      "fase": "eliminado_treintaydos",
       "partidos": [
         {
           "rival": "Canadá",
@@ -1027,6 +1081,12 @@
           "resultado": "3-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "EE.UU.",
+          "resultado": "0-2",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1108,6 +1168,12 @@
           "resultado": "2-0",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Ecuador",
+          "resultado": "2-0",
+          "tipo": "victoria",
+          "fase": "treintaydos"
         }
       ]
     },
@@ -1183,6 +1249,12 @@
           "resultado": "2-1",
           "tipo": "victoria",
           "fase": "grupos"
+        },
+        {
+          "rival": "México",
+          "resultado": "0-2",
+          "tipo": "derrota",
+          "fase": "treintaydos"
         },
         {
           "rival": "México",
@@ -1348,16 +1420,17 @@
       {
         "home": "EE.UU.",
         "away": "Bosnia y Herz.",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 2,
+        "scoreAway": 0,
+        "ganador": "EE.UU."
       },
       {
         "home": "Bélgica",
         "away": "Senegal",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 3,
+        "scoreAway": 2,
+        "ganador": "Bélgica",
+        "tiempoExtra": true
       },
       {
         "home": "Brasil",
@@ -1432,7 +1505,13 @@
         "ganador": null
       },
       null,
-      null,
+      {
+        "home": "EE.UU.",
+        "away": "Bélgica",
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
       {
         "home": "Brasil",
         "away": "Noruega",
