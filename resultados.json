@@ -1,11 +1,11 @@
 {
-  "partidos_jugados": 92,
-  "ultima_actualizacion": "6 jul 2026, 07:42",
+  "partidos_jugados": 96,
+  "ultima_actualizacion": "9 jul 2026, 07:15",
   "equipos": {
     "Bélgica": {
       "pts": 5,
       "estado": "activo",
-      "fase": "octavos",
+      "fase": "cuartos",
       "partidos": [
         {
           "rival": "Egipto",
@@ -30,6 +30,12 @@
           "resultado": "3-2",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "EE.UU.",
+          "resultado": "4-1",
+          "tipo": "victoria",
+          "fase": "octavos"
         }
       ]
     },
@@ -240,8 +246,8 @@
     },
     "Colombia": {
       "pts": 7,
-      "estado": "activo",
-      "fase": "octavos",
+      "estado": "eliminado",
+      "fase": "eliminado_octavos",
       "partidos": [
         {
           "rival": "Uzbekistán",
@@ -266,6 +272,12 @@
           "resultado": "1-0",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Suiza",
+          "resultado": "0-0 (pen 3-4)",
+          "tipo": "derrota",
+          "fase": "octavos"
         }
       ]
     },
@@ -297,7 +309,7 @@
     "Argentina": {
       "pts": 9,
       "estado": "activo",
-      "fase": "octavos",
+      "fase": "cuartos",
       "partidos": [
         {
           "rival": "Argelia",
@@ -322,6 +334,12 @@
           "resultado": "3-2",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Egipto",
+          "resultado": "3-2",
+          "tipo": "victoria",
+          "fase": "octavos"
         }
       ]
     },
@@ -625,8 +643,8 @@
     },
     "EE.UU.": {
       "pts": 6,
-      "estado": "activo",
-      "fase": "octavos",
+      "estado": "eliminado",
+      "fase": "eliminado_octavos",
       "partidos": [
         {
           "rival": "Paraguay",
@@ -651,6 +669,12 @@
           "resultado": "2-0",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Bélgica",
+          "resultado": "1-4",
+          "tipo": "derrota",
+          "fase": "octavos"
         }
       ]
     },
@@ -973,7 +997,7 @@
     "España": {
       "pts": 7,
       "estado": "activo",
-      "fase": "octavos",
+      "fase": "cuartos",
       "partidos": [
         {
           "rival": "Islas Cabo Verde",
@@ -998,6 +1022,12 @@
           "resultado": "3-0",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Portugal",
+          "resultado": "1-0",
+          "tipo": "victoria",
+          "fase": "octavos"
         }
       ]
     },
@@ -1096,8 +1126,8 @@
     },
     "Portugal": {
       "pts": 5,
-      "estado": "activo",
-      "fase": "octavos",
+      "estado": "eliminado",
+      "fase": "eliminado_octavos",
       "partidos": [
         {
           "rival": "RD Congo",
@@ -1122,6 +1152,12 @@
           "resultado": "2-1",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "España",
+          "resultado": "0-1",
+          "tipo": "derrota",
+          "fase": "octavos"
         }
       ]
     },
@@ -1245,8 +1281,8 @@
     },
     "Egipto": {
       "pts": 5,
-      "estado": "activo",
-      "fase": "octavos",
+      "estado": "eliminado",
+      "fase": "eliminado_octavos",
       "partidos": [
         {
           "rival": "Bélgica",
@@ -1271,6 +1307,12 @@
           "resultado": "1-1 (pen 4-2)",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Argentina",
+          "resultado": "2-3",
+          "tipo": "derrota",
+          "fase": "octavos"
         }
       ]
     },
@@ -1438,7 +1480,7 @@
     "Suiza": {
       "pts": 7,
       "estado": "activo",
-      "fase": "octavos",
+      "fase": "cuartos",
       "partidos": [
         {
           "rival": "Catar",
@@ -1463,6 +1505,12 @@
           "resultado": "2-0",
           "tipo": "victoria",
           "fase": "treintaydos"
+        },
+        {
+          "rival": "Colombia",
+          "resultado": "0-0 (pen 4-3)",
+          "tipo": "victoria",
+          "fase": "octavos"
         }
       ]
     }
@@ -1605,16 +1653,16 @@
       {
         "home": "Portugal",
         "away": "España",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 0,
+        "scoreAway": 1,
+        "ganador": "España"
       },
       {
         "home": "EE.UU.",
         "away": "Bélgica",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 1,
+        "scoreAway": 4,
+        "ganador": "Bélgica"
       },
       {
         "home": "Brasil",
@@ -1633,16 +1681,17 @@
       {
         "home": "Argentina",
         "away": "Egipto",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 3,
+        "scoreAway": 2,
+        "ganador": "Argentina"
       },
       {
         "home": "Suiza",
         "away": "Colombia",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 0,
+        "scoreAway": 0,
+        "ganador": "Suiza",
+        "penales": "4-3"
       }
     ],
     "cuartos": [
@@ -1653,7 +1702,13 @@
         "scoreAway": null,
         "ganador": null
       },
-      null,
+      {
+        "home": "España",
+        "away": "Bélgica",
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
       {
         "home": "Noruega",
         "away": "Inglaterra",
@@ -1661,7 +1716,13 @@
         "scoreAway": null,
         "ganador": null
       },
-      null
+      {
+        "home": "Argentina",
+        "away": "Suiza",
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      }
     ]
   }
 }
