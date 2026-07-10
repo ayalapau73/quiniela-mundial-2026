@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 96,
-  "ultima_actualizacion": "9 jul 2026, 07:15",
+  "partidos_jugados": 97,
+  "ultima_actualizacion": "10 jul 2026, 07:10",
   "equipos": {
     "Bélgica": {
       "pts": 5,
@@ -178,8 +178,8 @@
     },
     "Marruecos": {
       "pts": 7,
-      "estado": "activo",
-      "fase": "cuartos",
+      "estado": "eliminado",
+      "fase": "eliminado_cuartos",
       "partidos": [
         {
           "rival": "Brasil",
@@ -210,6 +210,12 @@
           "resultado": "3-0",
           "tipo": "victoria",
           "fase": "octavos"
+        },
+        {
+          "rival": "Francia",
+          "resultado": "0-2",
+          "tipo": "derrota",
+          "fase": "cuartos"
         }
       ]
     },
@@ -743,7 +749,7 @@
     "Francia": {
       "pts": 9,
       "estado": "activo",
-      "fase": "cuartos",
+      "fase": "semis",
       "partidos": [
         {
           "rival": "Senegal",
@@ -774,6 +780,12 @@
           "resultado": "1-0",
           "tipo": "victoria",
           "fase": "octavos"
+        },
+        {
+          "rival": "Marruecos",
+          "resultado": "2-0",
+          "tipo": "victoria",
+          "fase": "cuartos"
         }
       ]
     },
@@ -1698,9 +1710,9 @@
       {
         "home": "Francia",
         "away": "Marruecos",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 2,
+        "scoreAway": 0,
+        "ganador": "Francia"
       },
       {
         "home": "España",
@@ -1723,6 +1735,16 @@
         "scoreAway": null,
         "ganador": null
       }
+    ],
+    "semis": [
+      {
+        "home": "Francia",
+        "away": null,
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      },
+      null
     ]
   }
 }
