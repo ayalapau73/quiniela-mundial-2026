@@ -1,11 +1,11 @@
 {
-  "partidos_jugados": 97,
-  "ultima_actualizacion": "10 jul 2026, 07:10",
+  "partidos_jugados": 98,
+  "ultima_actualizacion": "11 jul 2026, 10:38",
   "equipos": {
     "Bélgica": {
       "pts": 5,
-      "estado": "activo",
-      "fase": "cuartos",
+      "estado": "eliminado",
+      "fase": "eliminado_cuartos",
       "partidos": [
         {
           "rival": "Egipto",
@@ -36,6 +36,12 @@
           "resultado": "4-1",
           "tipo": "victoria",
           "fase": "octavos"
+        },
+        {
+          "rival": "España",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "cuartos"
         }
       ]
     },
@@ -1009,7 +1015,7 @@
     "España": {
       "pts": 7,
       "estado": "activo",
-      "fase": "cuartos",
+      "fase": "semis",
       "partidos": [
         {
           "rival": "Islas Cabo Verde",
@@ -1040,6 +1046,12 @@
           "resultado": "1-0",
           "tipo": "victoria",
           "fase": "octavos"
+        },
+        {
+          "rival": "Bélgica",
+          "resultado": "2-1",
+          "tipo": "victoria",
+          "fase": "cuartos"
         }
       ]
     },
@@ -1717,9 +1729,9 @@
       {
         "home": "España",
         "away": "Bélgica",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 2,
+        "scoreAway": 1,
+        "ganador": "España"
       },
       {
         "home": "Noruega",
@@ -1739,7 +1751,7 @@
     "semis": [
       {
         "home": "Francia",
-        "away": null,
+        "away": "España",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
