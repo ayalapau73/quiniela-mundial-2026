@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 98,
-  "ultima_actualizacion": "11 jul 2026, 10:38",
+  "partidos_jugados": 101,
+  "ultima_actualizacion": "15 jul 2026, 09:00",
   "equipos": {
     "Bélgica": {
       "pts": 5,
@@ -321,7 +321,7 @@
     "Argentina": {
       "pts": 9,
       "estado": "activo",
-      "fase": "cuartos",
+      "fase": "semis",
       "partidos": [
         {
           "rival": "Argelia",
@@ -352,6 +352,12 @@
           "resultado": "3-2",
           "tipo": "victoria",
           "fase": "octavos"
+        },
+        {
+          "rival": "Suiza",
+          "resultado": "3-1",
+          "tipo": "victoria",
+          "fase": "cuartos"
         }
       ]
     },
@@ -413,8 +419,8 @@
     },
     "Noruega": {
       "pts": 6,
-      "estado": "activo",
-      "fase": "cuartos",
+      "estado": "eliminado",
+      "fase": "eliminado_cuartos",
       "partidos": [
         {
           "rival": "Irak",
@@ -445,6 +451,12 @@
           "resultado": "2-1",
           "tipo": "victoria",
           "fase": "octavos"
+        },
+        {
+          "rival": "Inglaterra",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "cuartos"
         }
       ]
     },
@@ -619,7 +631,7 @@
     "Inglaterra": {
       "pts": 7,
       "estado": "activo",
-      "fase": "cuartos",
+      "fase": "semis",
       "partidos": [
         {
           "rival": "Croacia",
@@ -650,6 +662,12 @@
           "resultado": "3-2",
           "tipo": "victoria",
           "fase": "octavos"
+        },
+        {
+          "rival": "Noruega",
+          "resultado": "2-1",
+          "tipo": "victoria",
+          "fase": "cuartos"
         }
       ]
     },
@@ -754,8 +772,8 @@
     },
     "Francia": {
       "pts": 9,
-      "estado": "activo",
-      "fase": "semis",
+      "estado": "eliminado",
+      "fase": "eliminado_semis",
       "partidos": [
         {
           "rival": "Senegal",
@@ -792,6 +810,12 @@
           "resultado": "2-0",
           "tipo": "victoria",
           "fase": "cuartos"
+        },
+        {
+          "rival": "España",
+          "resultado": "0-2",
+          "tipo": "derrota",
+          "fase": "semis"
         }
       ]
     },
@@ -1015,7 +1039,7 @@
     "España": {
       "pts": 7,
       "estado": "activo",
-      "fase": "semis",
+      "fase": "final",
       "partidos": [
         {
           "rival": "Islas Cabo Verde",
@@ -1052,6 +1076,12 @@
           "resultado": "2-1",
           "tipo": "victoria",
           "fase": "cuartos"
+        },
+        {
+          "rival": "Francia",
+          "resultado": "2-0",
+          "tipo": "victoria",
+          "fase": "semis"
         }
       ]
     },
@@ -1503,8 +1533,8 @@
     },
     "Suiza": {
       "pts": 7,
-      "estado": "activo",
-      "fase": "cuartos",
+      "estado": "eliminado",
+      "fase": "eliminado_cuartos",
       "partidos": [
         {
           "rival": "Catar",
@@ -1535,6 +1565,12 @@
           "resultado": "0-0 (pen 4-3)",
           "tipo": "victoria",
           "fase": "octavos"
+        },
+        {
+          "rival": "Argentina",
+          "resultado": "1-3",
+          "tipo": "derrota",
+          "fase": "cuartos"
         }
       ]
     }
@@ -1736,27 +1772,44 @@
       {
         "home": "Noruega",
         "away": "Inglaterra",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 1,
+        "scoreAway": 2,
+        "ganador": "Inglaterra",
+        "tiempoExtra": true
       },
       {
         "home": "Argentina",
         "away": "Suiza",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 3,
+        "scoreAway": 1,
+        "ganador": "Argentina",
+        "tiempoExtra": true
       }
     ],
     "semis": [
       {
         "home": "Francia",
         "away": "España",
+        "scoreHome": 0,
+        "scoreAway": 2,
+        "ganador": "España"
+      },
+      {
+        "home": "Inglaterra",
+        "away": "Argentina",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
-      },
-      null
+      }
+    ],
+    "final": [
+      {
+        "home": "España",
+        "away": null,
+        "scoreHome": null,
+        "scoreAway": null,
+        "ganador": null
+      }
     ]
   }
 }
