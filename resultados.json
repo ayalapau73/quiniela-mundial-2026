@@ -1,6 +1,6 @@
 {
-  "partidos_jugados": 101,
-  "ultima_actualizacion": "15 jul 2026, 09:00",
+  "partidos_jugados": 102,
+  "ultima_actualizacion": "15 jul 2026, 23:30",
   "equipos": {
     "Bélgica": {
       "pts": 5,
@@ -321,7 +321,7 @@
     "Argentina": {
       "pts": 9,
       "estado": "activo",
-      "fase": "semis",
+      "fase": "final",
       "partidos": [
         {
           "rival": "Argelia",
@@ -358,6 +358,12 @@
           "resultado": "3-1",
           "tipo": "victoria",
           "fase": "cuartos"
+        },
+        {
+          "rival": "Inglaterra",
+          "resultado": "2-1",
+          "tipo": "victoria",
+          "fase": "semis"
         }
       ]
     },
@@ -630,8 +636,8 @@
     },
     "Inglaterra": {
       "pts": 7,
-      "estado": "activo",
-      "fase": "semis",
+      "estado": "eliminado",
+      "fase": "eliminado_semis",
       "partidos": [
         {
           "rival": "Croacia",
@@ -668,6 +674,12 @@
           "resultado": "2-1",
           "tipo": "victoria",
           "fase": "cuartos"
+        },
+        {
+          "rival": "Argentina",
+          "resultado": "1-2",
+          "tipo": "derrota",
+          "fase": "semis"
         }
       ]
     },
@@ -1797,15 +1809,15 @@
       {
         "home": "Inglaterra",
         "away": "Argentina",
-        "scoreHome": null,
-        "scoreAway": null,
-        "ganador": null
+        "scoreHome": 1,
+        "scoreAway": 2,
+        "ganador": "Argentina"
       }
     ],
     "final": [
       {
         "home": "España",
-        "away": null,
+        "away": "Argentina",
         "scoreHome": null,
         "scoreAway": null,
         "ganador": null
